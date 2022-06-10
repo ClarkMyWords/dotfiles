@@ -1,0 +1,30 @@
+#!/bin/bash
+
+msgId=3968383
+
+notified=false
+
+while :
+    do
+        battery=$(acpi -b | awk '{print $4}' | sed 's/[^0-9]*//g')
+
+        case $notified  in
+            (true)
+                if (( $battery > 20 )); then
+                    notified=false
+                fi ;;
+                
+            (false)
+
+                if (( $battery <= 20 )); then
+                    dunstify -a "Battery" -u critical -i battery-low -r $msgId "Battery Level is Low: ${battery}%"
+                    notified=true
+
+                fi ;;
+
+        esac
+
+        sleep 30
+
+    done
+
