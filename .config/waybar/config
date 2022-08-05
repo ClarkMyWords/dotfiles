@@ -6,7 +6,7 @@
   "modules-right": ["keyboard-state", "custom/space", "network", "custom/space", "custom/weather", "custom/space", "clock"],
   "clock":{
     "interval": 1,
-    "format": "{:%A, %B %e, %Y %r}"
+    "format": "{:%A, %B %e, %Y %H:%M:%S}"
   },
   "pulseaudio":{
     "format": "{desc}: {volume}% ",

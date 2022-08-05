@@ -3,13 +3,17 @@
 # Startup Commands
 
 # XDG
-exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec hash dbus-update-activation-environment 2>/dev/null && \
+  dbus-update-activation-environment --all DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # Lock on intital startup
 exec lock.sh
 
+# Keyring
+#exec unlock-keyring.sh
+
 # Idle Manager
-exec custom-idle-audio.sh
+#exec custom-idle-audio.sh
 exec custom-idle-1.sh
 
 # Audio
@@ -21,9 +25,9 @@ exec wireplumber
 exec dunst
 
 # Organize Monitors correctly and set Wallpaper
-output HDMI-A-1 dpms on pos 0 0 res 1920x1080 bg /home/clark/.config/sysimages/Wallpaper.png fit
-output DVI-D-1 dpms on pos 1920 0 res 1600x900 bg /home/clark/.config/sysimages/Wallpaper.png fill
-output DVI-D-2 dpms on pos 3520 0 res 1920x1080 bg /home/clark/.config/sysimages/Wallpaper.png fit
+output HDMI-A-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
+output DVI-D-1 dpms on pos 1920 0 res 1600x900 bg $HOME/.config/sysimages/Wallpaper.png fill
+output DVI-D-2 dpms on pos 3520 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
 
 exec swaymsg border none
 
@@ -77,7 +81,7 @@ bindsym $mod+q kill
 bindsym $mod+space exec $menu
 
 # Other Rofi Tools
-bindsym $mod+b exec bwmenu --clear=60
+bindsym $mod+b exec bwmenu --clear=60 --auto-lock 360
 bindsym $mod+Escape exec rofi -show powermenu -modi powermenu:rofi-power-menu
 
 # suspend/reboot/poweroff from Lock
@@ -86,7 +90,12 @@ bindsym --locked $mod+r exec loginctl reboot
 bindsym --locked $mod+p exec loginctl poweroff
 
 # Screenshot
-bindsym Print exec (env QT_QPA_PLATFORM=xcb flameshot gui)
+bindsym Print exec grimshot copy area
+bindsym shift+Print exec grimshot copy window
+bindsym $mod+Print exec grimshot save area
+
+# One Day, my Love
+# bindsym Print exec (env QT_QPA_PLATFORM=xcb flameshot gui)
 
 # Reload the configuration file
 bindsym $mod+Shift+z exec swaymsg "reload"
@@ -152,6 +161,8 @@ workspace 26 output HDMI-A-1
 workspace 27 output HDMI-A-1
 workspace 28 output HDMI-A-1
 workspace 29 output HDMI-A-1
+
+workspace 30 output DVI-D-2
 
 # Switch to workspace
 bindsym $mod+1 workspace 0
@@ -223,13 +234,14 @@ bindsym $mod+plus move container to workspace 29
 
 # Open programs
 exec swaymsg "workspace 13; exec kitty btop;"
+exec swaymsg "workspace 30; exec kitty sway-audio-idle-inhibit"
 exec swaymsg "workspace 12; exec spotify;"
 exec swaymsg 'assign [class="discord"] workspace 11' && exec swaymsg "exec discord"
 exec swaymsg "workspace 10; exec hamsket;"
 
-exec swaymsg "workspace 20; exec qutebrowser;"
+exec swaymsg "workspace 20; exec firefox;"
 exec swaymsg "workspace 0; exec kitty;"
-exec swaymsg "workspace 1; exec qutebrowser;"
+exec swaymsg "workspace 1; exec firefox;"
 
 # Colors:
 # class                 border  backgr. text    indicator   child_border

@@ -86,6 +86,8 @@ augroup highlight_yank
     au TextYankPost * silent! lua vim.highlight.on_yank{timeout=250}
 augroup END
 
+set completeopt=menu,menuone,noselect
+
 "Adapted from @wuelnermartinez 
 
 lua <<EOF

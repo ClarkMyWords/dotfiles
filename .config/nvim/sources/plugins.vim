@@ -3,53 +3,47 @@
 " Install Vim Plugins
 call plug#begin('~/local/share/nvim/plugged')
 
-" vim-signify installation
-Plug 'mhinz/vim-signify'
+"""
+" Language Server Protocol
 
-" vim-fugitive
-" Plug 'tpope/vim-fugitive'
+" Neovim LSP Config
+Plug 'neovim/nvim-lspconfig'
 
-" airline installation
+" nvim-cmp Completion Engine
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+" vim-vsnip Snippet Tool
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+
+"""
+
+"""
+" General formatting
+
+" Noctu color scheme
+Plug 'noahfrederick/vim-noctu'
+
+" Vim Airline
 Plug 'vim-airline/vim-airline'
 
-Plug 'sheerun/vim-polyglot'
-
-Plug 'luochen1990/rainbow'
-
-" Plug 'vim-syntastic/syntastic'
-
-" ale
-" Plug 'dense-analysis/ale'
-" neovim lsp
-" Plug 'neovim/nvim-lspconfig'
-
-" Python
-" Jedi
-" Plug 'davidhalter/jedi-vim'
-" Neomake for Pylint
-" Plug 'neomake/neomake'
-
-" Rust
-" Plug 'rust-lang/rust.vim'
-
-" General formatting
+" Auto Pairs (Quotes, Parens, Braces/Brackets)
 Plug 'jiangmiao/auto-pairs'
+
+" Indent Blankline
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 " NERD Commenter
 Plug 'preservim/nerdcommenter'
 
-" ultisnips
-" Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" Markdown Preview
-"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-
-" Noctu color scheme
-Plug 'noahfrederick/vim-noctu'
-
 " vim devicons
 Plug 'ryanoasis/vim-devicons'
+
+"""
 
 call plug#end()
 
@@ -58,5 +52,5 @@ source $HOME/.config/nvim/sources/plugin-settings/nerdcommenter.vim
 source $HOME/.config/nvim/sources/plugin-settings/indent-blankline.vim
 source $HOME/.config/nvim/sources/plugin-settings/airline.vim
 source $HOME/.config/nvim/sources/plugin-settings/rainbow.vim
-" source $HOME/.config/nvim/sources/plugin-settings/syntastic.vim
-
+source $HOME/.config/nvim/sources/plugin-settings/neovimlsp.vim
+source $HOME/.config/nvim/sources/plugin-settings/eslint.vim
