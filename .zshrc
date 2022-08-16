@@ -35,6 +35,7 @@ alias pacall="pacall.sh"
 
 export SHELL=$(which zsh)
 export EDITOR=$(which nvim)
+export VISUAL=$(which nvim)
 export PATH=$PATH:~/.cargo/bin
 #export PATH=$PATH:~/.config/node_modules
 export PATH=$PATH:~/.local/bin:~/.bin

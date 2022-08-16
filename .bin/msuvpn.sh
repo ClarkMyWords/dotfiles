@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo openconnect -b vpn.msstate.edu 
+sudo openconnect --background vpn.msstate.edu --authgroup Student --user ch3136
 
