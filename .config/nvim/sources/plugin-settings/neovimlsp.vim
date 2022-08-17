@@ -87,6 +87,6 @@ require'lspconfig'.jsonls.setup{
     capabilities = frontend_capabilities,
 }
 
-local servers = {'bashls','clangd', 'cssls', 'eslint', 'html', 'jedi_language_server', 'jsonls', 'phpactor', 'pylsp', 'pyright', 'rust_analyzer', 'sumneko_lua'}
+local servers = {'bashls','clangd', 'cssls', 'eslint', 'html', 'jedi_language_server', 'jsonls', 'intelephense', 'pylsp', 'pyright', 'rust_analyzer', 'sumneko_lua'}
 
 EOF
