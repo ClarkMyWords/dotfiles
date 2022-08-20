@@ -13,3 +13,5 @@
 
 6. Symlink the config file at $HOME/.config/root/rootbashrc to /root/.bashrc
 
+7. Symlink the config file at $HOME/.config/autologin/conf to /etc/runit/sv/agetty-tty1/conf
+
