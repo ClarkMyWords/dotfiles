@@ -11,3 +11,5 @@
 
 5. Symlink the config file at $HOME/.config/grub/grub to /etc/default/grub
 
+6. Symlink the config file at $HOME/.config/root/rootbashrc to /root/.bashrc
+
