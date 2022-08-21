@@ -52,7 +52,6 @@ require'lspconfig'.pyright.setup{
 }
 require'lspconfig'.rust_analyzer.setup{
     capabilities = capabiltiies,
-    cmd = { "rustup run nightly rust-analyzer" }
 }
 
 require'lspconfig'.sumneko_lua.setup{

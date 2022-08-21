@@ -4,7 +4,7 @@ LOCKFILE=/tmp/lock
 
 lock(){
     dunstctl set-paused true
-    pgrep -x swaylock > /dev/null && : || swaylock -KLeftu --image=$HOME/.config/sysimages/LockScreen.png
+    pgrep -x swaylock > /dev/null && : || swaylock -efFKlt --image=$HOME/.config/sysimages/LockScreen.png
     dunstctl set-paused false
 }
 
