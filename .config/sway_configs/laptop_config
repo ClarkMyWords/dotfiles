@@ -1,0 +1,219 @@
+# Custom Sway Config
+
+# Startup Commands
+
+# XDG
+exec hash dbus-update-activation-environment 2>/dev/null && \
+  dbus-update-activation-environment --all DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+# Lock on intital startup
+exec lock.sh
+
+# Idle Manager
+exec custom-idle-1.sh
+
+# Audio
+exec pipewire
+exec pipewire-pulse
+exec wireplumber
+
+# Notifications
+exec dunst
+
+# Organize Monitors correctly and set Wallpaper
+exec swaymsg output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/wallpaper.png fit
+
+exec swaymsg border none
+
+# Focus does not follow mouse
+focus_follows_mouse no
+focus_on_window_activation urgent
+focus_wrapping no
+
+### Variables
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $alt Mod1
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term kitty
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+# set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu rofi -modi drun -show | xargs swaymsg exec --
+
+### Input configuration
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Start your launcher
+bindsym $mod+space exec $menu
+
+# Other Rofi Tools
+bindsym $mod+b exec bwmenu --clear=60 --auto-lock 360
+bindsym $mod+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+
+# suspend/reboot/poweroff from Lock
+bindsym --locked $mod+s exec loginctl suspend
+bindsym --locked $mod+r exec loginctl reboot
+bindsym --locked $mod+p exec loginctl poweroff
+
+# Screenshot
+bindsym Print exec grimshot copy area
+bindsym shift+Print exec grimshot copy window
+bindsym $mod+Print exec grimshot save area
+
+# One Day, my Love
+# bindsym Print exec (env QT_QPA_PLATFORM=xcb flameshot gui)
+
+# Reload the configuration file
+bindsym $mod+Shift+z exec swaymsg "reload"
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Audio
+bindsym XF86AudioRaiseVolume exec volumeup.sh
+bindsym XF86AudioLowerVolume exec volumedown.sh
+bindsym XF86AudioMute exec volumemute.sh
+bindsym $mod+Prior exec micmute.sh
+bindsym $mod+Next exec (changeoutput.sh && sleep 1)
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Moving around:
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus 
+bindsym $mod+$right focus right
+
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# Workspaces:
+
+# Define workspace
+workspace 0 output eDP-1
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output eDP-1
+workspace 7 output eDP-1
+workspace 8 output eDP-1
+workspace 9 output eDP-1
+
+workspace 10 output eDP-1
+workspace 11 output eDP-1
+workspace 12 output eDP-1
+workspace 13 output eDP-1
+workspace 14 output eDP-1
+workspace 15 output eDP-1
+workspace 16 output eDP-1
+workspace 17 output eDP-1
+workspace 18 output eDP-1
+workspace 19 output eDP-1
+
+workspace 99 output eDP-1
+
+# Switch to workspace
+bindsym $mod+1 workspace 0
+bindsym $mod+2 workspace 1
+bindsym $mod+3 workspace 2
+bindsym $mod+4 workspace 3
+bindsym $mod+5 workspace 4
+bindsym $mod+6 workspace 5
+bindsym $mod+7 workspace 6
+bindsym $mod+8 workspace 7
+bindsym $mod+9 workspace 8
+bindsym $mod+0 workspace 9
+
+bindsym $mod+comma workspace 10
+bindsym $mod+period workspace 11
+bindsym $mod+slash workspace 12
+bindsym $mod+semicolon workspace 13
+bindsym $mod+apostrophe workspace 14
+bindsym $mod+bracketleft workspace 15
+bindsym $mod+bracketright workspace 16
+bindsym $mod+backslash workspace 17
+bindsym $mod+minus workspace 18
+bindsym $mod+equal workspace 19
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 0
+bindsym $mod+Shift+2 move container to workspace 1
+bindsym $mod+Shift+3 move container to workspace 2
+bindsym $mod+Shift+4 move container to workspace 3
+bindsym $mod+Shift+5 move container to workspace 4
+bindsym $mod+Shift+6 move container to workspace 5
+bindsym $mod+Shift+7 move container to workspace 6
+bindsym $mod+Shift+8 move container to workspace 7
+bindsym $mod+Shift+9 move container to workspace 8
+bindsym $mod+Shift+0 move container to workspace 9
+
+bindsym $mod+less move container to workspace 10
+bindsym $mod+greater move container to workspace 11
+bindsym $mod+question move container to workspace 12
+bindsym $mod+colon move container to workspace 13
+bindsym $mod+quotedbl move container to workspace 14
+bindsym $mod+braceleft move container to workspace 15
+bindsym $mod+braceright move container to workspace 16
+bindsym $mod+bar move container to workspace 17
+bindsym $mod+underscore move container to workspace 18
+bindsym $mod+plus move container to workspace 19
+
+# Open programs
+exec swaymsg "workspace 99; exec kitty sway-audio-idle-inhibit"
+exec swaymsg "workspace 5; exec kitty btop;"
+exec swaymsg "workspace 4; exec spotify;"
+exec swaymsg "workspace 3; exec hamsket;"
+exec swaymsg 'assign [class="discord"] workspace 2' && exec swaymsg "exec discord"
+exec swaymsg "workspace 1; exec firefox;"
+exec swaymsg "workspace 0; exec kitty;"
+
+# Colors:
+# class                 border  backgr. text    indicator   child_border
+client.focused          #00d900 #00a600 #ffffff #e5e500     #00d900
+client.focused_inactive #666666 #000000 #ffffff #e5e500     #666666
+client.unfocused        #666666 #000000 #ffffff #999900     #666666
+client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
+client.placeholder      #000000 #000000 #ffffff #000000     #00a600
+
+default_border none
+
+#
+# Status Bar:
+#
+
+exec_always waybarlaunch.sh
