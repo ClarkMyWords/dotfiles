@@ -9,6 +9,8 @@
 
 4. Symlink the config file at $HOME/.config/firefox/userChrome.css to $HOME/.mozilla/firefox/<profile>/chrome/userChrome.css
 
+    4a. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true
+
 5. Symlink the config file at $HOME/.config/grub/grub to /etc/default/grub and run sudo update-grub
 
 6. Symlink the config file at $HOME/.config/root/rootbashrc to /root/.bashrc
