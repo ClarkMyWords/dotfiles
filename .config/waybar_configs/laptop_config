@@ -16,7 +16,7 @@
   "network":{
     "interface": "wlan0",
     "format": "{ifname}",
-    "format-wifi": "{ifname} {essid}({frequency} {signalStrength}): {bandwidthDownBits} DOWN / {bandwidthUpBits} UP ",
+    "format-wifi": "{ifname} {frequency}MHz {essid} {signalStrength}%: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP ",
     "format-disconnected": "NO INTERNET",
   },
   "keyboard-state":{
