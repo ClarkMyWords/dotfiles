@@ -17,3 +17,5 @@
 
 8. Symlink the correct config file in the $HOME/.config/sway_configs directory to $HOME/.config/sway/config
 
+9. Symlink the correct config file in the $HOME/.config/waybar_configs directoy to $HOME/.config/waybar/config or $HOME/.config/waybar/style.css
+
