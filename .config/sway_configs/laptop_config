@@ -76,6 +76,7 @@ bindsym $mod+space exec $menu
 
 # Other Rofi Tools
 bindsym $mod+b exec bwmenu --clear=60 --auto-lock 360
+bindsym $mod+n exec rofi-connman
 bindsym $mod+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
 
 # suspend/reboot/poweroff from Lock
@@ -195,10 +196,9 @@ bindsym $mod+plus move container to workspace 19
 
 # Open programs
 exec swaymsg "workspace 99; exec kitty sway-audio-idle-inhibit"
-exec swaymsg "workspace 5; exec kitty btop;"
-exec swaymsg "workspace 4; exec spotify;"
-exec swaymsg "workspace 3; exec hamsket;"
-exec swaymsg 'assign [class="discord"] workspace 2' && exec swaymsg "exec discord"
+exec swaymsg "workspace 4; exec kitty btop;"
+exec swaymsg 'assign [class="discord"] workspace 3' && exec swaymsg "exec discord"
+exec swaymsg "workspace 2; exec hamsket;"
 exec swaymsg "workspace 1; exec firefox;"
 exec swaymsg "workspace 0; exec kitty;"
 

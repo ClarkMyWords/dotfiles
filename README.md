@@ -21,3 +21,5 @@
 
 9. Symlink the correct config file in the $HOME/.config/waybar_configs directoy to $HOME/.config/waybar/config or $HOME/.config/waybar/style.css
 
+10. Symlink the correct config file in the $HOME/.config/neofetch_configs directory to $HOME/.config/neofetch/config.conf
+

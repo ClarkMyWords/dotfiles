@@ -3,7 +3,7 @@
   "height": 20,
   "modules-left": ["sway/workspaces"],
   "modules-center": ["pulseaudio", "custom/space", /*"music", "custom/space",*/ "custom/microphone"],
-  "modules-right": ["keyboard-state", "custom/space", "network", "custom/space", "custom/weather", "custom/space", "clock"],
+  "modules-right": ["keyboard-state", "custom/space", "network", "custom/space", "custom/weather", "custom/space", "battery", "custom/space", "clock"],
   "clock":{
     "interval": 1,
     "format": "{:%A, %B %e, %Y %H:%M:%S}"
@@ -28,6 +28,19 @@
       "unlocked": ""
     }
 
+  },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 10,
+    "states": {
+        "warning": 25,
+        "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": true,
+    "tooltip-format": "{timeTo}",
+    "max-length": 25
   },
   "custom/microphone":{
     "interval": 1,
