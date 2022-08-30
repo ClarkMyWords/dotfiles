@@ -7,7 +7,7 @@
 
 3. Symlink the config file at $HOME/.config/pacman.conf to /etc/pacman.conf
 
-4. Symlink the config file at $HOME/.config/firefox/userChrome.css to $HOME/.mozilla/firefox/<profile>/chrome/userChrome.css
+4. Symlink the config file at $HOME/.config/firefox/userChrome.css to $HOME/.mozilla/firefox/\<profile\>/chrome/userChrome.css
 
     4a. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true
 
