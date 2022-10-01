@@ -2,6 +2,8 @@
 
 # Startup Commands
 
+font pango:RobotoMonoNerdFont Regular 12
+
 # Lock on intital startup
 exec initial-lock.sh
 

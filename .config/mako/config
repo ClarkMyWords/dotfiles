@@ -1,0 +1,14 @@
+# Custom Mako Configuration File
+
+on-button-left=dismiss
+on-button-right=dismiss
+
+background-color=#00A600
+border-color=#000000
+text-alignment=center
+font=pango:RobotoMonoNerdFont Regular 12
+
+output=DVI-D-1
+
+max-visible=-1
+
