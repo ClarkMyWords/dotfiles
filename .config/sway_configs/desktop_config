@@ -71,7 +71,7 @@ set $menu rofi -modi drun -show | xargs swaymsg exec --
 # Basics:
 #
 # Start a terminal
-bindsym $mod+Return exec $term
+# bindsym $mod+Return exec $term
 
 # Kill focused window
 # bindsym $mod+q kill
@@ -82,6 +82,9 @@ bindsym $mod+Return exec $term
 # Other Rofi Tools
 # bindsym $mod+b exec bwmenu --clear=60 --auto-lock 360
 # bindsym $mod+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+bindsym --locked $mod+s exec locked-suspend.sh
+bindsym --locked $mod+r exec locked-reboot.sh
+bindsym --locked $mod+p exec locked-poweroff.sh
 
 # Screenshot
 bindsym Print exec grimshot copy area

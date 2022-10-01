@@ -1,6 +1,5 @@
 #!/bin/sh
 
-set -xe
 #$mod="Mod4"
 #$term="kitty"
 #$menu="rofi -modi drun -show | xargs swaymsg exec --"
