@@ -43,6 +43,9 @@ Plug 'preservim/nerdcommenter'
 " vim devicons
 Plug 'ryanoasis/vim-devicons'
 
+" surround.vim
+Plug 'tpope/vim-surround'
+
 """
 
 call plug#end()
