@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 value=$(brightnessctl --device=platform::micmute get)
 

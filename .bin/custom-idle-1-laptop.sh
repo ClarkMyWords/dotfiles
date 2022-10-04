@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Stage One:
 #    1) kill all active swayidle instances and run the custom swayidle function
@@ -9,7 +9,11 @@
 #        4a) Stage 3 will kill these processes
 
 custom_swayidle(){
-    (swayidle -w timeout 300 custom-idle-2.sh) &
+    (swayidle -w timeout 120 dim.sh resume restore-brightness.sh timeout 300 custom-idle-2-laptop.sh resume restore-brightness.sh) &
 }
 
-pgrep -x swayidle > /dev/null && (killall swayidle && custom_swayidle) || custom_swayidle
+main(){
+    pgrep -x swayidle > /dev/null && (killall swayidle && custom_swayidle) || custom_swayidle
+}
+
+main

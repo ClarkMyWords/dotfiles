@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/bin/sh
+
+# Functionality is working without the script? Must be hardware, Fn + Space
 
 value=$(brightnessctl --device=tpacpi::kbd_backlight get)
 
@@ -14,5 +16,5 @@ case $value in
         newValue=0 ;;
 esac
 
-brightnessctl --device=tpacpi::kbd_backlight set $newValue
+brightnessctl --device=tpacpi::kbd_backlight set $newValue -q
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
-pgrep -x openconnect > /dev/null && (sudo killall openconnect) || :
+pgrep -x openconnect > /dev/null && (sudo killall openconnect > /dev/null) || :
 

@@ -1,11 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-LOCKFILE=/tmp/lock
+main(){
+    LOCKFILE=/tmp/lock
 
-while [[ -e $LOCKFILE ]]
-do
-  :
-done
+    while [[ -e $LOCKFILE ]]
+    do
+    :
+    done
 
-lock.sh && loginctl suspend
+    lock.sh && loginctl suspend
+}
 
+main

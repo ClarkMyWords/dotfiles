@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/sh
 
 MIC_MUTED=$(pactl get-source-mute @DEFAULT_SOURCE@ | awk '{print $2}')
 
@@ -9,7 +8,7 @@ else
     micValue=0
 fi
 
-brightnessctl --device=platform::micmute set $micValue > /dev/null 2>&1
+brightnessctl --device=platform::micmute set $micValue -q
 
 SPEAKER_MUTED=$(pactl get-sink-mute @DEFAULT_SINK@ | awk '{print $2}')
 
@@ -19,5 +18,5 @@ else
     speakerValue=0
 fi
 
-brightnessctl --device=platform::mute set $speakerValue > /dev/null 2>&1
+brightnessctl --device=platform::mute set $speakerValue -q
 

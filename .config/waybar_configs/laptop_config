@@ -3,7 +3,7 @@
   "height": 20,
   "modules-left": ["sway/workspaces"],
   "modules-center": ["pulseaudio", "custom/space", /*"music", "custom/space",*/ "custom/microphone"],
-  "modules-right": ["keyboard-state", "custom/space", "network", "custom/space", "custom/weather", "custom/space", "battery", "custom/space", "clock"],
+  "modules-right": ["keyboard-state", "custom/space", "network", "custom/space", "custom/weather", "custom/space", "battery", "clock"],
   "clock":{
     "interval": 1,
     "format": "{:%A, %B %e, %Y %H:%M:%S}"
@@ -16,7 +16,9 @@
   "network":{
     "interface": "wlan0",
     "format": "{ifname}",
-    "format-wifi": "{ifname} {frequency}MHz {essid} {signalStrength}%: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP ",
+    "format-wifi": "{essid}: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP ",
+    "tooltip": true,
+    "tooltip-format": "{ifname} {frequency}MHz {signalStrength}%",
     "format-disconnected": "NO INTERNET",
   },
   "keyboard-state":{
@@ -36,7 +38,7 @@
         "warning": 25,
         "critical": 15
     },
-    "format": "{icon}  {capacity}%",
+    "format": " {icon} {capacity}% ",
     "format-icons": ["", "", "", "", ""],
     "tooltip": true,
     "tooltip-format": "{timeTo}",
@@ -45,10 +47,6 @@
   "custom/microphone":{
     "interval": 1,
     "exec": "micstatus.sh"
-  },
-  "custom/weather":{
-    "exec": "curl 'https://wttr.in/?format=2'",
-    "interval": 60
   },
   "custom/space":{
     "format": "       "

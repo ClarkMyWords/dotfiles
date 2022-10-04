@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 PKGS=/tmp/pkg.txt
 pacall.sh > $PKGS

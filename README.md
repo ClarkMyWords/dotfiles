@@ -23,3 +23,8 @@
 
 10. Symlink the correct config file in the $HOME/.config/neofetch_configs directory to $HOME/.config/neofetch/config.conf
 
+11. Install a preferred job-scheduler (I use cron(ie)), and add system-clean.sh to run at reboot
+```bash
+@reboot systemclean.sh
+```
+

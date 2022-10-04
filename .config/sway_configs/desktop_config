@@ -5,14 +5,14 @@
 font pango:RobotoMonoNerdFont Regular 12
 
 # Lock on intital startup
-exec initial-lock.sh
+exec initial-lock-desktop.sh
 
 # Keyring
 #exec unlock-keyring.sh
 
 # Idle Manager
 #exec custom-idle-audio.sh
-exec custom-idle-1.sh
+exec custom-idle-1-desktop.sh
 
 # Audio
 exec pipewire

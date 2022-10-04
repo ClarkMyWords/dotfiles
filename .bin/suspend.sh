@@ -1,3 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
-loginctl suspend
+main(){
+    loginctl suspend
+}
+
+main

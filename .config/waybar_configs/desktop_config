@@ -3,7 +3,7 @@
   "height": 20,
   "modules-left": ["sway/workspaces"],
   "modules-center": ["pulseaudio", "custom/space", /*"music", "custom/space",*/ "custom/microphone"],
-  "modules-right": ["keyboard-state", "custom/space", "network", "custom/space", "clock"],
+  "modules-right": ["keyboard-state", "custom/space", "network", "clock"],
   "clock":{
     "interval": 1,
     "format": "{:%A, %B %e, %Y %H:%M:%S}"
@@ -16,7 +16,7 @@
   "network":{
     "interface": "eth0",
     "format": "{ifname}",
-    "format-ethernet": "{ifname}: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP ",
+    "format-ethernet": "{ifname}: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP",
     "format-disconnected": "NO INTERNET",
   },
   "keyboard-state":{

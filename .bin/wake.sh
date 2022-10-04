@@ -1,3 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-swaymsg "output * dpms on"
+main(){
+    restore-brightness.sh
+    swaymsg "output * dpms on"
+}
+
+main

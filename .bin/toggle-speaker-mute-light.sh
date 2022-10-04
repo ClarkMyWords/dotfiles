@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 value=$(brightnessctl --device=platform::mute get)
 
@@ -12,5 +12,5 @@ case $value in
 
 esac
 
-brightnessctl --device=platform::mute set $newValue > /dev/null 2>&1
+brightnessctl --device=platform::mute set $newValue > /dev/null -q
 
