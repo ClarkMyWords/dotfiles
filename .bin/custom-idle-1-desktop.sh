@@ -9,7 +9,7 @@
 #        4a) Stage 3 will kill these processes
 
 custom_swayidle(){
-    (swayidle -w timeout timeout 300 custom-idle-2-desktop.sh) &
+    (swayidle -w timeout 300 custom-idle-2-desktop.sh) &
 }
 
 main(){

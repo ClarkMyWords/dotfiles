@@ -1,7 +1,10 @@
 #!/bin/sh
 
 main(){
-    restore-brightness.sh
+    if command -v brightnessctl &> /dev/null
+    then
+        restore-brightness.sh
+    fi
     swaymsg "output * dpms on"
 }
 
