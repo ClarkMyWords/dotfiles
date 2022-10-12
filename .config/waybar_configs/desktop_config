@@ -16,7 +16,7 @@
   "network":{
     "interface": "eth0",
     "format": "{ifname}",
-    "format-ethernet": "{ifname}: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP",
+    "format-ethernet": "{ifname}: {bandwidthDownBits} DOWN / {bandwidthUpBits} UP ",
     "format-disconnected": "NO INTERNET",
   },
   "keyboard-state":{
