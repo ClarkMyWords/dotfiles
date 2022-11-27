@@ -4,8 +4,6 @@
 #$term="kitty"
 #$menu="rofi -modi drun -show | xargs swaymsg exec --"
 
-set -xe
-
 # First, lock
 lock.sh
 

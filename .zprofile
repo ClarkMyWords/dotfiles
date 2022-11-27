@@ -18,4 +18,3 @@ if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
         dbus-update-activation-environment --all DISPLAY WAYLAND_DISPLAY SWAYSOCK
     exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 fi
-

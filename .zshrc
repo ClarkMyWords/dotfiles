@@ -23,8 +23,8 @@ HISTCONTROL=ingoredups:erasedups
 #setopt -s histappend ???
 
 alias redo="sudo \"$SHELL\" -c \"$(history -p !!)\""
-alias ls="exa -l"
-alias la="exa -laa"
+alias ls="exa -l --icons --git"
+alias la="exa -laa --icons --git"
 alias :q="exit"
 alias getip="curl ifconfig.me && echo"
 alias ssh-server="ssh -p 22222 clark@146.70.57.12"

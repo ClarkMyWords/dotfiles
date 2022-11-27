@@ -6,15 +6,15 @@
   font-family: "RobotoMono";
   font-size: 12px;
 
-  margin: 0 0;
-  padding: 0 0;
+  margin: 0px 0px;
+  padding: 0px 0px;
 
 }
 
 #clock{
 
   background:#000000;
-  padding: 0 4;
+  padding: 0px 4px;
 
 }
 
@@ -22,6 +22,6 @@
 
   background:#FF0000;
   color: #000000;
-  padding: 0 4;
+  padding: 0px 4px;
 
 }

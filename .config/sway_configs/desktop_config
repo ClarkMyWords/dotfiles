@@ -28,8 +28,6 @@ exec swaymsg output HDMI-A-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysi
 exec swaymsg output DVI-D-1 dpms on pos 1920 0 res 1600x900 bg $HOME/.config/sysimages/Wallpaper.png fill
 exec swaymsg output DVI-D-2 dpms on pos 3520 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
 
-exec swaymsg border none
-
 # Focus does not follow mouse
 focus_follows_mouse no
 focus_on_window_activation urgent
@@ -249,5 +247,22 @@ default_border none
 #
 # Status Bar:
 #
+bar {
+       colors {
+        background #007F00
+        statusline #FFFFFF
+        separator #000000
 
-exec_always waybarlaunch.sh
+        focused_workspace  #00FF00 #00FF00 #000000
+        active_workspace   #007F00 #007F00 #FFFFFF
+        inactive_workspace #007F00 #007F00 #FFFFFF
+        urgent_workspace   #007F00 #FF0000 #FFFFFF
+        binding_mode       #2f343a #900000 #ffffff
+    }
+       font pango:RobotoMonoNerdFont Regular 12
+        position top
+        tray_output none
+        status_command bumblebee-status -m nic date time\
+                -p time.format="%H:%M:%S" date.format="%A, %B %e, %Y" \
+                -t clarks-theme
+}

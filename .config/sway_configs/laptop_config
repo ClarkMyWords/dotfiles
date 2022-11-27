@@ -11,22 +11,22 @@ exec initial-lock-laptop.sh
 exec (sleep 1 && restore-brightness.sh)
 exec (sleep 1 && starting-lights.sh)
 
-# Idle Manager
-exec custom-idle-1-laptop.sh
+# Audio and Idle Manager
+exec start-audio.sh
+#exec custom-idle-1-laptop.sh
 
 # Audio
-exec pipewire
-exec pipewire-pulse
-exec wireplumber
+#exec pipewire
+#exec pipewire-pulse
+#exec wireplumber
 
 # Notifications
 #exec dunst
 exec mako
 
 # Organize Monitors correctly and set Wallpaper
-exec swaymsg output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
-
-exec swaymsg border none
+#exec swaymsg output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
+output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fill
 
 # Focus does not follow mouse
 focus_follows_mouse no
@@ -221,4 +221,24 @@ default_border none
 # Status Bar:
 #
 
-exec_always waybarlaunch.sh
+bar {
+       colors {
+        background #007F00
+        statusline #FFFFFF
+        separator #000000
+
+        focused_workspace  #00FF00 #00FF00 #000000
+        active_workspace   #007F00 #007F00 #FFFFFF
+        inactive_workspace #007F00 #007F00 #FFFFFF
+        urgent_workspace   #007F00 #FF0000 #FFFFFF
+        binding_mode       #2f343a #900000 #ffffff
+    }
+       font pango:RobotoMonoNerdFont Regular 12
+        position top
+        tray_output none
+        status_command bumblebee-status -m brightness nic battery date time\
+                -p time.format="%H:%M:%S" date.format="%A, %B %e, %Y" nic.states="^down" brightness.step=0 \
+                -t clarks-theme
+}
+
+#exec_always waybarlaunch.sh
