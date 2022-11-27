@@ -11,7 +11,7 @@
 
     4a. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true
 
-5. Symlink the config file at $HOME/.config/grub/grub to /etc/default/grub and run sudo update-grub
+5. Symlink the correct config file in the $HOME/.config/grub driectory to /etc/default/grub and run sudo update-grub
 
 6. Symlink the config file at $HOME/.config/root/rootbashrc to /root/.bashrc
 
@@ -23,8 +23,10 @@
 
 10. Symlink the correct config file in the $HOME/.config/neofetch_configs directory to $HOME/.config/neofetch/config.conf
 
-11. Install a preferred job-scheduler (I use cron(ie)), and add system-clean.sh to run at reboot
+11. Install a preferred job-scheduler (I use cron(ie)), add systemclean.sh to run daily (in my case, via anachron)
 ```bash
-@reboot systemclean.sh
+#!/bin/sh
+/home/clark/.bin/systemclean.sh
+exit 0
 ```
 
