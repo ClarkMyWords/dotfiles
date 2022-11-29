@@ -46,7 +46,11 @@ local config = {
       number = true, -- sets vim.opt.number
       spell = false, -- sets vim.opt.spell
       signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = false, -- sets vim.opt.wrap
+      wrap = true, -- sets vim.opt.wrap
+      tabstop = 4, -- sets vim.opt.tabstop
+      shiftwidth = 4, -- sets vim.opt.shiftwidth
+      expandtab = true, -- sets vim.opt.expandtab
+      smartindent = true, -- sets vim.opt.smartindent
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -88,8 +92,8 @@ local config = {
   default_theme = {
     -- Modify the color palette for the default theme
     colors = {
-      fg = "#abb2bf",
-      bg = "#1e222a",
+      fg = "#007F00",
+      bg = "#000000",
     },
     highlights = function(hl) -- or a function that returns a new table of colors to set
       local C = require "default_theme.colors"
@@ -207,6 +211,9 @@ local config = {
       ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+      ["jka"] = {"<esc>A", desc = "Jump to EOL"},
+      ["oo"] = {"o<esc>", desc = "Insert new line below"},
+      ["OO"] = {"O<esc>", desc = "Insert new line above"},
     },
     t = {
       -- setting a mapping to false will disable it
