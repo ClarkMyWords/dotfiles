@@ -41,16 +41,26 @@ local config = {
   -- set vim options here (vim.<first_key>.<second_key> = value)
   options = {
     opt = {
-      -- set to true or false etc.
-      relativenumber = true, -- sets vim.opt.relativenumber
-      number = true, -- sets vim.opt.number
-      spell = false, -- sets vim.opt.spell
-      signcolumn = "auto", -- sets vim.opt.signcolumn to auto
-      wrap = true, -- sets vim.opt.wrap
-      tabstop = 4, -- sets vim.opt.tabstop
-      shiftwidth = 4, -- sets vim.opt.shiftwidth
-      expandtab = true, -- sets vim.opt.expandtab
-      smartindent = true, -- sets vim.opt.smartindent
+      -- sets vim.opt.<name>
+      relativenumber = true, 
+      number = true, 
+      spell = false, 
+      signcolumn = "auto", 
+      wrap = true, 
+      linebreak = true,
+      tabstop = 4, 
+      shiftwidth = 4, 
+      expandtab = true, 
+      smartindent = true,
+      list = true,
+      listchars = {
+        tab = "→ ",
+        extends = "⟩",
+        precedes = "⟨",
+        space = "·",
+        nbsp = "␣",
+        eol = "↲",
+      },
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -92,8 +102,16 @@ local config = {
   default_theme = {
     -- Modify the color palette for the default theme
     colors = {
-      fg = "#007F00",
+      fg = "#00D900",
       bg = "#000000",
+      black = "#000000",
+      red = "#E50000",
+      green = "#00E500",
+      yellow = "#E5E500",
+      blue = "#0000E5",
+      magenta = "#E500E5",
+      cyan = "#00E5E5", 
+      white = "#E5E5E5",
     },
     highlights = function(hl) -- or a function that returns a new table of colors to set
       local C = require "default_theme.colors"
