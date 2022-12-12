@@ -23,6 +23,8 @@
 
 10. Symlink the correct config file in the $HOME/.config/neofetch_configs directory to $HOME/.config/neofetch/config.conf
 
+11. Create a directory called "user" in $HOME/.config/nvim/lua (Created by installing Astronvim). Symlink $HOME/.config/astronvim_config/user to this new directory.
+
 11. Install a preferred job-scheduler (I use cron(ie)), add systemclean.sh to run daily (in my case, via anachron)
 ```bash
 #!/bin/sh

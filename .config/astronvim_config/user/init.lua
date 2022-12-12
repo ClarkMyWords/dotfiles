@@ -42,15 +42,15 @@ local config = {
   options = {
     opt = {
       -- sets vim.opt.<name>
-      relativenumber = true, 
-      number = true, 
-      spell = false, 
-      signcolumn = "auto", 
-      wrap = true, 
+      relativenumber = true,
+      number = true,
+      spell = false,
+      signcolumn = "auto",
+      wrap = true,
       linebreak = true,
-      tabstop = 4, 
-      shiftwidth = 4, 
-      expandtab = true, 
+      tabstop = 4,
+      shiftwidth = 4,
+      expandtab = true,
       smartindent = true,
       list = true,
       listchars = {
@@ -104,14 +104,14 @@ local config = {
     colors = {
       fg = "#00D900",
       bg = "#000000",
-      black = "#000000",
-      red = "#E50000",
-      green = "#00E500",
-      yellow = "#E5E500",
-      blue = "#0000E5",
-      magenta = "#E500E5",
-      cyan = "#00E5E5", 
-      white = "#E5E5E5",
+      black = "#181818",
+      red = "#AC0000",
+      green = "#00AC00",
+      yellow = "#ACAC00",
+      blue = "#0000AC",
+      magenta = "#AC00AC",
+      cyan = "#00ACAC",
+      white = "#ACACAC",
     },
     highlights = function(hl) -- or a function that returns a new table of colors to set
       local C = require "default_theme.colors"
@@ -210,32 +210,6 @@ local config = {
       --     },
       --   },
       -- },
-    },
-  },
-
-  -- Mapping data with "desc" stored directly by vim.keymap.set().
-  --
-  -- Please use this mappings table to set keyboard mapping since this is the
-  -- lower level configuration and more robust one. (which-key will
-  -- automatically pick-up stored data by this setting.)
-  mappings = {
-    -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      -- mappings seen under group name "Buffer"
-      ["<leader>bb"] = { "<cmd>tabnew<cr>", desc = "New tab" },
-      ["<leader>bc"] = { "<cmd>BufferLinePickClose<cr>", desc = "Pick to close" },
-      ["<leader>bj"] = { "<cmd>BufferLinePick<cr>", desc = "Pick to jump" },
-      ["<leader>bt"] = { "<cmd>BufferLineSortByTabs<cr>", desc = "Sort by tabs" },
-      -- quick save
-      -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
-      ["jka"] = {"<esc>A", desc = "Jump to EOL"},
-      ["oo"] = {"o<esc>", desc = "Insert new line below"},
-      ["OO"] = {"O<esc>", desc = "Insert new line above"},
-    },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
     },
   },
 
