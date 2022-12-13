@@ -273,5 +273,3 @@ bar {
                 pulseout.alsa_output.pci-0000_08_00.4.analog-stereo="Speakers" \
                 -t clarks-theme
 }
-# pulsein.left-click="select_default_device_popup" pulseout.left-click="select_default_device_popup" \
- 
