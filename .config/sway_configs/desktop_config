@@ -262,7 +262,16 @@ bar {
        font pango:RobotoMonoNerdFont Regular 12
         position top
         tray_output none
-        status_command bumblebee-status -m nic date time\
+        status_command bumblebee-status -m pulsein pulseout nic date time\
                 -p time.format="%H:%M:%S" date.format="%A, %B %e, %Y" nic.states="^down" \
+                pulsein.limit="100%" pulseout.limit="100%" \
+                pulsein.showbars=true pulseout.showbars=true \
+                pulsein.percent_change="1%" pulseout.percent_change="1%" \
+                pulsein.showdevicename=true pulseout.showdevicename=true \
+                pulseout.alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo="HyperX Cloud II Headphones"\
+                pulsein.alsa_output.usb-0c76_USB_PnP_Audio_Device-00.analog-stereo.monitor="Fifine Microphone" \
+                pulseout.alsa_output.pci-0000_08_00.4.analog-stereo="Speakers" \
                 -t clarks-theme
 }
+# pulsein.left-click="select_default_device_popup" pulseout.left-click="select_default_device_popup" \
+ 
