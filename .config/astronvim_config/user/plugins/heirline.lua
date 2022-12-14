@@ -17,7 +17,6 @@ return {
         astronvim.status.component.fill(),
         astronvim.status.component.lsp(),
         astronvim.status.component.treesitter(),
-        astronvim.status.component.nav(),
         ruler,
         astronvim.status.component.mode { surround = { separator = "right" } },
     },
