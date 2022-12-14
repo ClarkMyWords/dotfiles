@@ -9,7 +9,7 @@ bar {
 
         status_command desktop-status.sh
 
-        colors{
+        colors {
                 background #007F00
                 statusline #FFFFFF
                 separator  #000000
