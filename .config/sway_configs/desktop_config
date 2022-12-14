@@ -1,4 +1,4 @@
-exec start-audio-desktop.sh
+exec custom-idle-1-desktop.sh
 output HDMI-A-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
 output DVI-D-1 dpms on pos 1920 0 res 1600x900 bg $HOME/.config/sysimages/Wallpaper.png fill
 output DVI-D-2 dpms on pos 3520 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit

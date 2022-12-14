@@ -1,5 +1,4 @@
 #!/bin/sh
-set -xe
 
 # First, lock
 lock.sh

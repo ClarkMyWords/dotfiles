@@ -2,6 +2,7 @@ font pango:RobotoMonoNerdFont Regular 12
 focus_follows_mouse no
 focus_on_window_activation urgent
 focus_wrapping no
+exec start-audio.sh
 exec mako
 bindsym Mod4+Return exec kitty
 bindsym Mod4+q kill

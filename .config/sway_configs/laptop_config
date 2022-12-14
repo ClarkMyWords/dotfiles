@@ -1,4 +1,4 @@
-exec start-audio-laptop.sh
+exec custom-idle-1-laptop.sh
 exec (sleep 1 && restore-brightness.sh)
 exec (sleep 1 && starting-light.sh)
 output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fill
