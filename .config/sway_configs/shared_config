@@ -1,0 +1,32 @@
+font pango:RobotoMonoNerdFont Regular 12
+focus_follows_mouse no
+focus_on_window_activation urgent
+focus_wrapping no
+exec mako
+bindsym Mod4+Return exec kitty
+bindsym Mod4+q kill
+bindsym Mod4+space exec rofi -modi drun -show | xargs swaymsg exec --
+bindsym Mod4+b exec bwmenu --clear=60 --auto-lock 360
+bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+bindsym Mod4+Shift+z exec swaymsg "reload"
+bindsym --locked Mod4+s exec locked-suspend.sh
+bindsym --locked Mod4+r exec locked-reboot.sh
+bindsym --locked Mod4+p exec locked-poweroff.sh
+bindsym Print exec grimshot copy area
+bindsym shift+Print exec grimshot copy window
+bindsym Mod4+Print exec grimshow save area
+bindsym XF86AudioRaiseVolume exec volumeup.sh
+bindsym XF86AudioLowerVolume exec volumedown.sh
+bindsym XF86AudioMute exec volumemute.sh
+bindsym XF86AudioMicMute exec micmute.sh
+bindsym Mod4+Next exec (changeoutput.sh && sleep 1)
+bindsym Mod4+f fullscreen toggle
+workspace 1; exec kitty;
+workspace 2; exec firefox;
+workspace 99; exec kitty sway-audio-idle-inhibit
+client.focused          #00d900 #00a600 #ffffff #e5e500     #00d900
+client.focused_inactive #666666 #000000 #ffffff #e5e500     #666666
+client.unfocused        #666666 #000000 #ffffff #999900     #666666
+client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
+client.placeholder      #000000 #000000 #ffffff #000000     #00a600
+default_border none
