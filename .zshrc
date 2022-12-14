@@ -49,9 +49,5 @@ precmd() { vcs_info }
 zstyle ':vcs_info:*' formats ' %s(%F{magenta}%b%f)' # git(branch)
 setopt prompt_subst
 
-
 PS1='%F{green}<%F{white}%n@%m%f %F{red}%/%f${vcs_info_msg_0_}%F{green}> %F{green}%%%F{lime} ' # name@machine /dir git(branch) %
 RPS1='%F{magenta} %D{%T, %A, %B %e, %Y}' # HH:MM:SS, Day, Month DATE, YEAR
-
-
-alias luamake=/home/clark/.config/nvim/sources/plugin-settings/lua-language-server/3rd/luamake/luamake

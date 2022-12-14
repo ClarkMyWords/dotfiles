@@ -28,5 +28,3 @@ while [ $? == 1 ]
 do
     pgrep -x > wireplumber > /dev/null
 done
-
-exec custom-idle-1-desktop.sh
