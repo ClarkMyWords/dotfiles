@@ -1,0 +1,23 @@
+# Custom Sway Config
+exec_always laptop-startup.sh
+
+# Status Bar
+bar {
+        font pango:RobotoMonoNerdFont Regular 12
+        position top
+        tray_output none
+
+        status_command laptop-status.sh
+
+        colors{
+                background #007F00
+                statusline #FFFFFF
+                separator  #000000
+
+                focused_workspace  #00FF00 #00FF00 #000000
+                active_workspace   #007F00 #007F00 #FFFFFF
+                inactive_workspace #007F00 #007F00 #FFFFFF
+                urgent_workspace   #007F00 #FF0000 #FFFFFF
+                binding_mode       #2F343A #900000 #FFFFFF
+            }
+    }

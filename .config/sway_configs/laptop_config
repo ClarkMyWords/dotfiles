@@ -1,134 +1,10 @@
-# Custom Sway Config
-
-# Startup Commands
-
-font pango:RobotoMonoNerdFont Regular 12
-
-# Lock on intital startup
-exec initial-lock-laptop.sh
-
-# Restore Brightness
+exec start-audio-laptop.sh
 exec (sleep 1 && restore-brightness.sh)
-exec (sleep 1 && starting-lights.sh)
-
-# Audio and Idle Manager
-exec start-audio.sh
-#exec custom-idle-1-laptop.sh
-
-# Audio
-#exec pipewire
-#exec pipewire-pulse
-#exec wireplumber
-
-# Notifications
-#exec dunst
-exec mako
-
-# Organize Monitors correctly and set Wallpaper
-#exec swaymsg output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
+exec (sleep 1 && starting-light.sh)
 output eDP-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fill
-
-# Focus does not follow mouse
-focus_follows_mouse no
-focus_on_window_activation urgent
-focus_wrapping no
-
-### Variables
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-set $alt Mod1
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term kitty
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-# set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $menu rofi -modi drun -show | xargs swaymsg exec --
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
-### Key bindings
-#
-# Basics:
-#
-# Start a terminal
-# bindsym $mod+Return exec $term
-
-# Kill focused window
-# bindsym $mod+q kill
-
-# Start your launcher
-# bindsym $mod+space exec $menu
-
-# Other Rofi Tools
-# bindsym $mod+b exec bwmenu --clear=60 --auto-lock 360
-# bindsym $mod+n exec rofi-connman
-# bindsym $mod+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
-bindsym --locked $mod+s exec locked-suspend.sh
-bindsym --locked $mod+r exec locked-reboot.sh
-bindsym --locked $mod+p exec locked-poweroff.sh
-
-# Screenshot
-bindsym Print exec grimshot copy area
-bindsym shift+Print exec grimshot copy window
-bindsym $mod+Print exec grimshot save area
-
-# One Day, my Love
-# bindsym Print exec (env QT_QPA_PLATFORM=xcb flameshot gui)
-
-# Reload the configuration file
-# bindsym $mod+Shift+z exec swaymsg "reload"
-
-# Exit sway (logs you out of your Wayland session)
-# bindsym $mod+Shift+x exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-
-# Audio
-bindsym XF86AudioRaiseVolume exec volumeup.sh
-bindsym XF86AudioLowerVolume exec volumedown.sh
-bindsym XF86AudioMute exec volumemute.sh
-bindsym XF86AudioMicMute exec micmute.sh
-bindsym $mod+Next exec (changeoutput.sh && sleep 1)
-
-# Brightness
+bindsym Mod4+n exec rofi-connman
 bindsym XF86MonBrightnessUp exec brightness-up.sh
 bindsym XF86MonBrightnessDown exec brightness-down.sh
-
-# Make the current focus fullscreen
-bindsym $mod+f fullscreen toggle
-
-# Moving around:
-# Move your focus around
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus 
-bindsym $mod+$right focus right
-
-# Move the focused window with the same, but add Shift
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-
-# Workspaces:
-
-# Define workspace
 workspace 1 output eDP-1
 workspace 2 output eDP-1
 workspace 3 output eDP-1
@@ -139,7 +15,6 @@ workspace 7 output eDP-1
 workspace 8 output eDP-1
 workspace 9 output eDP-1
 workspace 10 output eDP-1
-
 workspace 11 output eDP-1
 workspace 12 output eDP-1
 workspace 13 output eDP-1
@@ -150,99 +25,49 @@ workspace 17 output eDP-1
 workspace 18 output eDP-1
 workspace 19 output eDP-1
 workspace 20 output eDP-1
-
 workspace 99 output eDP-1
-
-# Switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-
-bindsym $mod+comma workspace 11
-bindsym $mod+period workspace 12
-bindsym $mod+slash workspace 13
-bindsym $mod+semicolon workspace 14
-bindsym $mod+apostrophe workspace 15
-bindsym $mod+bracketleft workspace 16
-bindsym $mod+bracketright workspace 17
-bindsym $mod+backslash workspace 18
-bindsym $mod+minus workspace 19
-bindsym $mod+equal workspace 20
-
-# Move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-
-bindsym $mod+less move container to workspace 11
-bindsym $mod+greater move container to workspace 12
-bindsym $mod+question move container to workspace 13
-bindsym $mod+colon move container to workspace 14
-bindsym $mod+quotedbl move container to workspace 15
-bindsym $mod+braceleft move container to workspace 16
-bindsym $mod+braceright move container to workspace 17
-bindsym $mod+bar move container to workspace 18
-bindsym $mod+underscore move container to workspace 19
-bindsym $mod+plus move container to workspace 20
-
-# Open programs
-# exec swaymsg "workspace 99; exec kitty sway-audio-idle-inhibit"
-# exec swaymsg "workspace 5; exec kitty btop;"
-# exec swaymsg 'assign [class="discord"] workspace 4' && exec swaymsg "exec discord"
-# exec swaymsg "workspace 3; exec hamsket;"
-# exec swaymsg "workspace 2; exec firefox;"
-# exec swaymsg "workspace 1; exec kitty;"
-
-# Colors:
-# class                 border  backgr. text    indicator   child_border
-client.focused          #00d900 #00a600 #ffffff #e5e500     #00d900
-client.focused_inactive #666666 #000000 #ffffff #e5e500     #666666
-client.unfocused        #666666 #000000 #ffffff #999900     #666666
-client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
-client.placeholder      #000000 #000000 #ffffff #000000     #00a600
-
-default_border none
-
-#
-# Status Bar:
-#
-
-bar {
-       colors {
-        background #007F00
-        statusline #FFFFFF
-        separator #000000
-
-        focused_workspace  #00FF00 #00FF00 #000000
-        active_workspace   #007F00 #007F00 #FFFFFF
-        inactive_workspace #007F00 #007F00 #FFFFFF
-        urgent_workspace   #007F00 #FF0000 #FFFFFF
-        binding_mode       #2f343a #900000 #ffffff
-    }
-       font pango:RobotoMonoNerdFont Regular 12
-        position top
-        tray_output none
-        status_command bumblebee-status -m pulsein pulseout brightness nic battery date time \
-                -p time.format="%H:%M:%S" date.format="%A, %B %e, %Y" nic.states="^down" brightness.step=0 \
-                pulsein.limit="100%" pulseout.limit="100%" \
-                pulsein.percent_change="1%" pulseout.percent_change="1%" \
-                pulsein.showbars=true pulseout.showbars=true \
-                pulsein.showdevicename=true pulseout.showdevicename=true \
-                pulseout.alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink="Speakers" \
-                pulsein.alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_6__source="Microphone" \
-                -t clarks-theme
-}
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+0 workspace 10
+bindsym Mod4+comma workspace 11
+bindsym Mod4+period workspace 12
+bindsym Mod4+slash workspace 13
+bindsym Mod4+semicolon workspace 14
+bindsym Mod4+apostrophe workspace 15
+bindsym Mod4+bracketleft workspace 16
+bindsym Mod4+bracketright workspace 17
+bindsym Mod4+backslash workspace 18
+bindsym Mod4+minus workspace 19
+bindsym Mod4+equal workspace 20
+bindsym Mod4+Shift+1 move container to workspace 1
+bindsym Mod4+Shift+2 move container to workspace 2
+bindsym Mod4+Shift+3 move container to workspace 3
+bindsym Mod4+Shift+4 move container to workspace 4
+bindsym Mod4+Shift+5 move container to workspace 5
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+8 move container to workspace 8
+bindsym Mod4+Shift+9 move container to workspace 9
+bindsym Mod4+Shift+0 move container to workspace 10
+bindsym Mod4+less move container to workspace 11
+bindsym Mod4+greater move container to workspace 12
+bindsym Mod4+question move container to workspace 13
+bindsym Mod4+colon move container to workspace 14
+bindsym Mod4+quotedbl move container to workspace 15
+bindsym Mod4+braceleft move container to workspace 16
+bindsym Mod4+braceright move container to workspace 17
+bindsym Mod4+bar move container to workspace 18
+bindsym Mod4+underscore move container to workspace 19
+bindsym Mod4+plus move container to workspace 20
+workspace 5; exec kitty btop;
+assign [class="discord"] workspace 4;
+workspace 4; exec discord;
+workspace 3; exec hamsket;
+workspace 1;
