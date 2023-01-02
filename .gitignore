@@ -3,5 +3,7 @@
 
 # Use the ones that work for both Laptop and Desktop with symlinks instead
 .config/i3
+.config/i3/*
 .config/neofetch
 .config/nvim
+.config/sysimages/LockScreen.png
