@@ -119,13 +119,13 @@ bindsym XF86MonBrightnessDown exec brightness-down.sh
 
 bindsym Mod4+f fullscreen toggle
 
-workspace 1; exec kitty;
-workspace 2; exec firefox;
-workspace 3; exec hamsket;
-workspace 4; exec discord;
-workspace 5; exec kitty btop;
+exec --no-startup-id i3-msg "workspace 1; exec kitty"
+exec --no-startup-id i3-msg "workspace 2; exec firefox"
+exec --no-startup-id i3-msg "workspace 3; exec hamsket"
+exec --no-startup-id i3-msg "workspace 4; exec discord"
+exec --no-startup-id i3-msg "workspace 5; exec kitty btop"
 
-workspace 1;
+exec --no-startup-id i3-msg "workspace 1"
 
 # Status Bar
 bar {
@@ -133,7 +133,7 @@ bar {
         position top
         tray_output none
 
-        status_command desktop-status.sh
+        status_command laptop-status.sh
 
         colors {
                 background #007F00

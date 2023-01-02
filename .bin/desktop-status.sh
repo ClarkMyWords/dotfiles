@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# 
-
 bumblebee-status -m pulsein pulseout nic date time \
     -p time.format="%H:%M:%S" \
     date.format="%A, %B %e, %Y" \

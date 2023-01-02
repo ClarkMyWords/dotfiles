@@ -146,16 +146,16 @@ bindsym Mod4+Next exec (changeoutput.sh && sleep 1)
 
 bindsym Mod4+f fullscreen toggle
 
-workspace 1; exec kitty;
-workspace 2; exec firefox;
-workspace 11; exec hamsket;
-workspace 12; exec discord;
-workspace 13; exec spotify;
-workspace 14; exec kitty btop;
+exec --no-startup-id i3-msg "workspace 1; exec kitty"
+exec --no-startup-id i3-msg "workspace 2; exec firefox"
+exec --no-startup-id i3-msg "workspace 11; exec hamsket"
+exec --no-startup-id i3-msg "workspace 12; exec discord"
+exec --no-startup-id i3-msg "workspace 13; exec spotify"
+exec --no-startup-id i3-msg "workspace 14; exec kitty btop"
 
-workspace 21;
-workspace 11;
-workspace 1;
+exec --no-startup-id i3-msg "workspace 21"
+exec --no-startup-id i3-msg "workspace 11"
+exec --no-startup-id i3-msg "workspace 1"
 
 # Status Bar
 bar {
