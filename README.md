@@ -13,7 +13,12 @@
 
     4a. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true
 
-5. Symlink the correct config file in the $HOME/.config/grub driectory to /etc/default/grub and run sudo update-grub
+5. Symlink the correct config file in the $HOME/.config/grub driectory to /etc/default/grub and run
+
+```shell
+sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
 
 6. Symlink the config file at $HOME/.config/root/rootbashrc to /root/.bashrc
 
