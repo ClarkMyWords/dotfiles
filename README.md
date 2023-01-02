@@ -5,7 +5,9 @@
 
 2. Clone my fork of [rofi-power-menu](https://www.github.com/ClarkHensley/rofi-power-menu) into the $HOME/.bin directory
 
-3. Symlink the config file at $HOME/.config/pacman.conf to /etc/pacman.conf
+    2a. Move the rofi-power-menu script into the .bin directory, either by copying it from the directory, or via symlinks
+
+3. Symlink the config file at $HOME/.config/pacman/pacman.conf to /etc/pacman.conf
 
 4. Symlink the config file at $HOME/.config/firefox/userChrome.css to $HOME/.mozilla/firefox/\<profile\>/chrome/userChrome.css
 
@@ -17,18 +19,11 @@
 
 7. Symlink the config file at $HOME/.config/autologin/conf to /etc/runit/sv/agetty-tty1/conf
 
-8. Symlink the correct config file in the $HOME/.config/sway_configs directory to $HOME/.config/sway/config
+8. Symlink the correct config file in the $HOME/.config/neofetch_configs directory to $HOME/.config/neofetch/config.conf
 
-9. Symlink the correct config file in the $HOME/.config/waybar_configs directoy to $HOME/.config/waybar/config or $HOME/.config/waybar/style.css
+9. Symlink the correct image file in $HOME/.config/sysimages to $HOME/.config/sysimages/LockScreen.png. See META.md in that directory to generate new Lock Screens depending on your monitor geometry.
 
-10. Symlink the correct config file in the $HOME/.config/neofetch_configs directory to $HOME/.config/neofetch/config.conf
+10. Install [AstroNvim](https://astronvim.github.io), perhaps via the AUR package. Instructions on [this page](https://astronvim.github.io/Configuration/manage_user_config) show how to set up the default configuration.
+    10a. Create a directory called "user" in $HOME/.config/nvim/lua (Created by installing AstroNvim and following the configuration). Symlink $HOME/.config/astronvim_config/user to this new directory.
 
-11. Create a directory called "user" in $HOME/.config/nvim/lua (Created by installing Astronvim). Symlink $HOME/.config/astronvim_config/user to this new directory.
-
-11. Install a preferred job-scheduler (I use cron(ie)), add systemclean.sh to run daily (in my case, via anachron)
-```bash
-#!/bin/sh
-/home/clark/.bin/systemclean.sh
-exit 0
-```
-
+11. Symlink the correct config file in the $HOME/.config/i3_configs directory to $HOME/.config/i3/config

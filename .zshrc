@@ -32,6 +32,8 @@ alias ssh-pluto="ssh ch3136@pluto.cse.msstate.edu"
 alias rcon-vanilla="mcrcon -H 146.70.57.12 -p minecontrol"
 alias cat="bat"
 alias pacall="pacall.sh"
+alias update="paru -Syyu && system-clean.sh"
+alias md="md.sh"
 
 export SHELL=$(which zsh)
 export EDITOR=$(which nvim)
@@ -51,3 +53,5 @@ setopt prompt_subst
 
 PS1='%F{green}<%F{white}%n@%m%f %F{red}%/%f${vcs_info_msg_0_}%F{green}> %F{green}%%%F{lime} ' # name@machine /dir git(branch) %
 RPS1='%F{magenta} %D{%T, %A, %B %e, %Y}' # HH:MM:SS, Day, Month DATE, YEAR
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

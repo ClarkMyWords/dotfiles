@@ -7,4 +7,4 @@ if [ -n "$DESKTOP_SESSION" ]; then
      export SSH_AUTH_SOCK
 fi
 
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"

@@ -1,0 +1,149 @@
+# Custom Sway Config
+exec_always lock.sh
+
+font pango:RobotoMonoNerdFont Regular 12
+
+focus_follows_mouse no
+focus_on_window_activation urgent
+focus_wrapping no
+
+client.focused          #00d900 #00a600 #ffffff #e5e500     #00d900
+client.focused_inactive #666666 #000000 #ffffff #e5e500     #666666
+client.unfocused        #666666 #000000 #ffffff #999900     #666666
+client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
+client.placeholder      #000000 #000000 #ffffff #000000     #00a600
+default_border none
+
+exec .fehbg
+
+exec start-audio.sh
+
+exec dunst
+
+exec (sleep 1 && restore-brightness.sh)
+exec (sleep 1 && starting-lights.sh)
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output eDP-1
+workspace 7 output eDP-1
+workspace 8 output eDP-1
+workspace 9 output eDP-1
+
+workspace 10 output eDP-1
+workspace 11 output eDP-1
+workspace 12 output eDP-1
+workspace 13 output eDP-1
+workspace 14 output eDP-1
+workspace 15 output eDP-1
+workspace 16 output eDP-1
+workspace 17 output eDP-1
+workspace 18 output eDP-1
+workspace 19 output eDP-1
+workspace 20 output eDP-1
+
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+0 workspace 10
+
+bindsym Mod4+comma workspace 11
+bindsym Mod4+period workspace 12
+bindsym Mod4+slash workspace 13
+bindsym Mod4+semicolon workspace 14
+bindsym Mod4+apostrophe workspace 15
+bindsym Mod4+bracketleft workspace 16
+bindsym Mod4+bracketright workspace 17
+bindsym Mod4+backslash workspace 18
+bindsym Mod4+minus workspace 19
+bindsym Mod4+equal workspace 20
+
+bindsym Mod4+Shift+1 move container to workspace 1
+bindsym Mod4+Shift+2 move container to workspace 2
+bindsym Mod4+Shift+3 move container to workspace 3
+bindsym Mod4+Shift+4 move container to workspace 4
+bindsym Mod4+Shift+5 move container to workspace 5
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+8 move container to workspace 8
+bindsym Mod4+Shift+9 move container to workspace 9
+bindsym Mod4+Shift+0 move container to workspace 10
+
+bindsym Mod4+Shift+comma move container to workspace 11
+bindsym Mod4+Shift+period move container to workspace 12
+bindsym Mod4+Shift+slash move container to workspace 13
+bindsym Mod4+Shift+semicolon move container to workspace 14
+bindsym Mod4+Shift+apostrophe move container to workspace 15
+bindsym Mod4+Shift+bracketleft move container to workspace 16
+bindsym Mod4+Shift+bracketright move container to workspace 17
+bindsym Mod4+Shift+backslash move container to workspace 18
+bindsym Mod4+Shift+minus move container to workspace 19
+bindsym Mod4+Shift+equal move container to workspace 20
+
+
+assign [class="hamsket"] workspace 3
+assign [class="Hamsket"] workspace 3
+assign [class="discord"] workspace 4
+assign [class="Discord"] workspace 4
+
+bindsym Mod4+Return exec kitty
+bindsym Mod4+q kill
+bindsym Mod4+space exec rofi -modi drun -show | xargs swaymsg exec --
+bindsym Mod4+b exec bwmenu --clear=60 --auto-lock 360
+bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+# TODO NMCLI? Probably
+#binsym Mod4+n exec rofi-connman
+
+# bindsym --locked Mod4+s exec locked-suspend.sh
+# bindsym --locked Mod4+r exec locked-reboot.sh
+# bindsym --locked Mod4+p exec locked-poweroff.sh
+
+bindsym Print exec flameshot gui
+
+bindsym XF86AudioRaiseVolume exec volumeup.sh
+bindsym XF86AudioLowerVolume exec volumedown.sh
+bindsym XF86AudioMute exec volumemute.sh
+bindsym XF86AudioMicMute exec micmute.sh
+bindsym Mod4+Next exec (changeoutput.sh && sleep 1)
+bindsym XF86MonBrightnessUp exec brightness-up.sh
+bindsym XF86MonBrightnessDown exec brightness-down.sh
+
+bindsym Mod4+f fullscreen toggle
+
+workspace 1; exec kitty;
+workspace 2; exec firefox;
+workspace 3; exec hamsket;
+workspace 4; exec discord;
+workspace 5; exec kitty btop;
+
+workspace 1;
+
+# Status Bar
+bar {
+        font pango:RobotoMonoNerdFont Regular 12
+        position top
+        tray_output none
+
+        status_command desktop-status.sh
+
+        colors {
+                background #007F00
+                statusline #007F00
+                separator  #000000
+
+                focused_workspace  #00FF00 #00FF00 #000000
+                active_workspace   #007F00 #007F00 #FFFFFF
+                inactive_workspace #007F00 #007F00 #FFFFFF
+                urgent_workspace   #007F00 #FF0000 #FFFFFF
+                binding_mode       #2F343A #900000 #FFFFFF
+            }
+    }

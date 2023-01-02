@@ -4,13 +4,14 @@
         "fg": "#FFFFFF",
         "bg": "#007F00",
         "warning": {
-            "fg": "#FFFF00",
+            "fg": "#FF0000",
             "bg": "#000000"
         },
         "critical": {
-            "fg": "#FF0000",
+            "fg": "#7F007F",
             "bg": "#000000"
-        }
+        },
+        "default-separators": true
     }
 }
 

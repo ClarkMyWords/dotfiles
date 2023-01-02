@@ -1,11 +1,12 @@
 #!/bin/sh
 
 OLD_DIR=$(pwd)
+WORK_DIR=$HOME/.cache/paru/clone
 PKGS=/tmp/pkg.txt
 pacall.sh > $PKGS
 
-cd /home/clark/.cache/paru/clone
-for f in /home/clark/.cache/paru/clone/*; do
+cd $WORK_DIR
+for f in $WORK_DIR/*; do
   pkg=$(rev <<< "${f}")
   pkg=$((cut -d "/" -f 1) <<< "${pkg}")
   pkg=$(rev <<< "${pkg}")

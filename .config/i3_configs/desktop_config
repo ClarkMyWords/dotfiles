@@ -1,9 +1,24 @@
 # Custom Sway Config
-exec_always desktop-startup.sh
+exec_always lock.sh
 
-output HDMI-A-1 dpms on pos 0 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
-output DVI-D-1 dpms on pos 1920 0 res 1600x900 bg $HOME/.config/sysimages/Wallpaper.png fill
-output DVI-D-2 dpms on pos 3520 0 res 1920x1080 bg $HOME/.config/sysimages/Wallpaper.png fit
+font pango:RobotoMonoNerdFont Regular 12
+
+focus_follows_mouse no
+focus_on_window_activation urgent
+focus_wrapping no
+
+client.focused          #00d900 #00a600 #ffffff #e5e500     #00d900
+client.focused_inactive #666666 #000000 #ffffff #e5e500     #666666
+client.unfocused        #666666 #000000 #ffffff #999900     #666666
+client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
+client.placeholder      #000000 #000000 #ffffff #000000     #00a600
+default_border none
+
+exec .fehbg
+
+exec start-audio.sh
+
+exec dunst
 
 workspace 1 output DVI-D-2
 workspace 2 output DVI-D-2
@@ -27,18 +42,16 @@ workspace 18 output DVI-D-1
 workspace 19 output DVI-D-1
 workspace 20 output DVI-D-1
 
-workspace 21 output HDMI-A-1
-workspace 22 output HDMI-A-1
-workspace 23 output HDMI-A-1
-workspace 24 output HDMI-A-1
-workspace 25 output HDMI-A-1
-workspace 26 output HDMI-A-1
-workspace 27 output HDMI-A-1
-workspace 28 output HDMI-A-1
-workspace 29 output HDMI-A-1
-workspace 30 output HDMI-A-1
-
-workspace 99 output DVI-D-1
+workspace 21 output HDMI-1
+workspace 22 output HDMI-1
+workspace 23 output HDMI-1
+workspace 24 output HDMI-1
+workspace 25 output HDMI-1
+workspace 26 output HDMI-1
+workspace 27 output HDMI-1
+workspace 28 output HDMI-1
+workspace 29 output HDMI-1
+workspace 30 output HDMI-1
 
 bindsym Mod4+1 workspace 1
 bindsym Mod4+2 workspace 2
@@ -95,16 +108,54 @@ bindsym Mod4+Mod1+Shift+8 move container to workspace 18
 bindsym Mod4+Mod1+Shift+9 move container to workspace 19
 bindsym Mod4+Mod1+Shift+0 move container to workspace 20
 
-bindsym Mod4+less move container to workspace 21
-bindsym Mod4+greater move container to workspace 22
-bindsym Mod4+question move container to workspace 23
-bindsym Mod4+colon move container to workspace 24
-bindsym Mod4+quotedbl move container to workspace 25
-bindsym Mod4+braceleft move container to workspace 26
-bindsym Mod4+braceright move container to workspace 27
-bindsym Mod4+bar move container to workspace 28
-bindsym Mod4+underscore move container to workspace 29
-bindsym Mod4+plus move container to workspace 30
+bindsym Mod4+Shift+comma move container to workspace 21
+bindsym Mod4+Shift+period move container to workspace 22
+bindsym Mod4+Shift+slash move container to workspace 23
+bindsym Mod4+Shift+semicolon move container to workspace 24
+bindsym Mod4+Shift+apostrophe move container to workspace 25
+bindsym Mod4+Shift+bracketleft move container to workspace 26
+bindsym Mod4+Shift+bracketright move container to workspace 27
+bindsym Mod4+Shift+backslash move container to workspace 28
+bindsym Mod4+Shift+minus move container to workspace 29
+bindsym Mod4+Shift+equal move container to workspace 30
+
+assign [class="hamsket"] workspace 11
+assign [class="Hamsket"] workspace 11
+assign [class="discord"] workspace 12
+assign [class="Discord"] workspace 12
+for_window [class="spotify"] move to  workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
+for_window [class="Spotify"] move to  workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
+
+bindsym Mod4+Return exec kitty
+bindsym Mod4+q kill
+bindsym Mod4+space exec rofi -modi drun -show | xargs swaymsg exec --
+bindsym Mod4+b exec bwmenu --clear=60 --auto-lock 360
+bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+
+# bindsym --locked Mod4+s exec locked-suspend.sh
+# bindsym --locked Mod4+r exec locked-reboot.sh
+# bindsym --locked Mod4+p exec locked-poweroff.sh
+
+bindsym Print exec flameshot gui
+
+bindsym XF86AudioRaiseVolume exec volumeup.sh
+bindsym XF86AudioLowerVolume exec volumedown.sh
+bindsym XF86AudioMute exec volumemute.sh
+bindsym XF86AudioMicMute exec micmute.sh
+bindsym Mod4+Next exec (changeoutput.sh && sleep 1)
+
+bindsym Mod4+f fullscreen toggle
+
+workspace 1; exec kitty;
+workspace 2; exec firefox;
+workspace 11; exec hamsket;
+workspace 12; exec discord;
+workspace 13; exec spotify;
+workspace 14; exec kitty btop;
+
+workspace 21;
+workspace 11;
+workspace 1;
 
 # Status Bar
 bar {
@@ -116,7 +167,7 @@ bar {
 
         colors {
                 background #007F00
-                statusline #FFFFFF
+                statusline #007F00
                 separator  #000000
 
                 focused_workspace  #00FF00 #00FF00 #000000

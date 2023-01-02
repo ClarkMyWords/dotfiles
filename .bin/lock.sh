@@ -1,7 +1,7 @@
 #!/bin/sh
 
 lock(){
-    pgrep -x swaylock > /dev/null && : || swaylock -efFKlt --image=$HOME/.config/sysimages/LockScreen.png
+    pgrep -x i3lock > /dev/null && : || i3lock -ef --image=$HOME/.config/sysimages/LockScreen.png
 }
 
 main(){

@@ -1,16 +1,16 @@
 #!/bin/sh
 
 LOCKFILE=/tmp/lock
-LOGFILE=/home/clark/sysclean.log
 
 echo $$ > $LOCKFILE
 
+echo "Removing unndeeded dependencies:"
 paru -c --noconfirm
+echo "Removing old packages"
 paccache -r
+echo "Removing all uninstalled packages"
 paccache -ruk0
-/home/clark/.bin/parucache.sh
-paru -Scc --noconfirm
 
-echo $(date) >> $LOGFILE
+$HOME/.bin/parucache.sh
 
 rm $LOCKFILE
