@@ -1,6 +1,5 @@
 # Custom Sway Config
-exec_always lock.sh
-
+#
 font pango:RobotoMonoNerdFont Regular 12
 
 focus_follows_mouse no
@@ -14,14 +13,16 @@ client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
 client.placeholder      #000000 #000000 #ffffff #000000     #00a600
 default_border none
 
-exec .fehbg
+exec --no-startup-id .fehbg
 
-exec start-audio.sh
+exec --no-startup-id start-audio.sh
 
-exec dunst
+exec --no-startup-id dunst
 
-exec (sleep 1 && restore-brightness.sh)
-exec (sleep 1 && starting-lights.sh)
+exec --no-startup-id (sleep 1 && restore-brightness.sh)
+exec --no-startup-id (sleep 1 && starting-lights.sh)
+
+exec --no-startup-id laptop-idle.sh
 
 workspace 1 output eDP-1
 workspace 2 output eDP-1
@@ -113,7 +114,6 @@ bindsym XF86AudioRaiseVolume exec volumeup.sh
 bindsym XF86AudioLowerVolume exec volumedown.sh
 bindsym XF86AudioMute exec volumemute.sh
 bindsym XF86AudioMicMute exec micmute.sh
-bindsym Mod4+Next exec (changeoutput.sh && sleep 1)
 bindsym XF86MonBrightnessUp exec brightness-up.sh
 bindsym XF86MonBrightnessDown exec brightness-down.sh
 

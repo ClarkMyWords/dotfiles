@@ -1,5 +1,4 @@
 # Custom Sway Config
-exec_always lock.sh
 
 font pango:RobotoMonoNerdFont Regular 12
 
@@ -14,11 +13,13 @@ client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
 client.placeholder      #000000 #000000 #ffffff #000000     #00a600
 default_border none
 
-exec .fehbg
+exec --no-startup-id .fehbg
 
-exec start-audio.sh
+exec --no-startup-id start-audio.sh
 
-exec dunst
+exec --no-startup-id dunst
+
+exec --no-startup-id desktop-idle.sh
 
 workspace 1 output DVI-D-2
 workspace 2 output DVI-D-2
@@ -142,20 +143,15 @@ bindsym XF86AudioRaiseVolume exec volumeup.sh
 bindsym XF86AudioLowerVolume exec volumedown.sh
 bindsym XF86AudioMute exec volumemute.sh
 bindsym XF86AudioMicMute exec micmute.sh
-bindsym Mod4+Next exec (changeoutput.sh && sleep 1)
 
 bindsym Mod4+f fullscreen toggle
 
-exec --no-startup-id i3-msg "workspace 1; exec kitty"
-exec --no-startup-id i3-msg "workspace 2; exec firefox"
-exec --no-startup-id i3-msg "workspace 11; exec hamsket"
-exec --no-startup-id i3-msg "workspace 12; exec discord"
-exec --no-startup-id i3-msg "workspace 13; exec spotify"
-exec --no-startup-id i3-msg "workspace 14; exec kitty btop"
-
-exec --no-startup-id i3-msg "workspace 21"
-exec --no-startup-id i3-msg "workspace 11"
-exec --no-startup-id i3-msg "workspace 1"
+exec --no-startup-id i3-msg "workspace 1; exec kitty; workspace 1"
+exec --no-startup-id i3-msg "workspace 2; exec firefox; workspace 1"
+exec --no-startup-id i3-msg "workspace 11; exec hamsket; workspace 1"
+exec --no-startup-id i3-msg "workspace 12; exec discord; workspace 1"
+exec --no-startup-id i3-msg "workspace 13; exec spotify; workspace 1"
+exec --no-startup-id i3-msg "workspace 14; exec kitty btop; workspace 1"
 
 # Status Bar
 bar {
