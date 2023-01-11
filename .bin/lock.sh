@@ -13,7 +13,10 @@ main(){
         :
     done
 
+    dunstctl set-paused true
     pgrep -x rofi > /dev/null && (killall -q rofi && lock) || lock
+
+    unpause_dunst.sh
 }
 
 main

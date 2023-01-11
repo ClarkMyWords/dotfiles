@@ -101,7 +101,7 @@ bindsym Mod4+q kill
 bindsym Mod4+space exec rofi -modi drun -show | xargs swaymsg exec --
 bindsym Mod4+b exec bwmenu --clear=60 --auto-lock 360
 bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
-binsym Mod4+n exec rofi-wifi-menu
+bindsym Mod4+n exec rofi-wifi-menu
 
 # bindsym --locked Mod4+s exec locked-suspend.sh
 # bindsym --locked Mod4+r exec locked-reboot.sh
