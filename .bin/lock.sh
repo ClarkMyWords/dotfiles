@@ -1,9 +1,5 @@
 #!/bin/sh
 
-lock(){
-    pgrep -x i3lock > /dev/null && : || i3lock -ef --image=$HOME/.config/sysimages/LockScreen.png
-}
-
 main(){
 
     LOCKFILE=/tmp/lock
@@ -14,9 +10,16 @@ main(){
     done
 
     dunstctl set-paused true
-    pgrep -x rofi > /dev/null && (killall -q rofi && lock) || lock
+    pgrep -x dunst > /dev/null 2>&1 && killall -q dunst || :
+    pgrep -x rofi > /dev/null 2>&1 && killall -q rofi || :
 
-    unpause_dunst.sh
+    i3lock --ignore-empty-password --show-failed-attempts --image=$HOME/.config/sysimages/LockScreen.png
+
+    PID=$!
+    sleep 1
+    wait $PID
+    exec dunst
+
 }
 
 main
