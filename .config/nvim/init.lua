@@ -1,6 +1,11 @@
 local set = vim.opt
 local g = vim.g
 
+-- System
+g.python3_host_prog = "/usr/bin/python"
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+
 -- Spell
 set.spell = false
 
@@ -44,24 +49,6 @@ set.listchars = {
     nbsp = "␣",
     eol = "↲",
 }
-set.colorcolumn = "80"
--- vim.api.nvim_set_hl(0, "ColorColumn", {fg=Red, bg=Red})
-vim.api.nvim_set_hl(0, "Normal", {fg=Black, bg=Yellow})
-
---[[ vim.options.clark_theme.colors = {
-    fg = "#FFFFFF",
-    bg = "#202020",
-    black = "#000000",
-    red = "#AC2020",
-    green = "#20AC20",
-    yellow = "#ACAC20",
-    blue = "#2020AC",
-    magenta = "#AC20AC",
-    cyan = "#20ACAC",
-    white = "#ACACAC",
-
-}
-vim.colorscheme = "clark_theme" ]]
 
 -- Keybinds
 g.mapleader = " "
@@ -103,6 +90,19 @@ require("lazy").setup({
     {
         "olimorris/onedarkpro.nvim",
         priority = 1000,
+        config = function()
+            require("onedarkpro").setup({
+                highlights = {
+                    Error = {
+                        bg = "${red}",
+                    },
+                    Visual = {
+                        bg = "${white}",
+                        fg = "${yellow}"
+                    },
+                }
+            })
+        end,
     },
     -- Backend
     {
@@ -139,7 +139,15 @@ require("lazy").setup({
             { "<leader>t", "<cmd>Neotree toggle<cr>", desc = "NeoTree"},
         },
         config = function()
-            require("neo-tree").setup()
+            require("neo-tree").setup({
+                filesystem = {
+                    filtered_items = {
+                        visible = true,
+                        hide_dotfiles = true,
+                        hide_gitignored = true,
+                    }
+                }
+            })
         end,
     },
     {
@@ -152,7 +160,7 @@ require("lazy").setup({
         end,
     },
     {
-        "Vonr/align.nvim"
+        "Vonr/align.nvim",
     },
     {
         "terrortylor/nvim-comment",
@@ -181,15 +189,17 @@ require("lazy").setup({
             })
         end
     },
-    -- {
-    --     "rebelot/heirline.nvim",
-    --     config = function()
-    --         require("heirline").setup({
-
-    --         })
-    --     end
-    -- },
+    {
+        "bluz71/nvim-linefly",
+    },
 })
+
+-- Linefly
+g.linefly_options = {
+    tabline = true,
+    winbar = true,
+    with_indent_status = true,
+}
 
 -- Colors
 vim.cmd("colorscheme onedark_dark")
@@ -201,7 +211,6 @@ require("nvim-treesitter.configs").setup{
         strategy = require "ts-rainbow.strategy.global"
     }
 }
-
 -- Alignment
 -- align_to_char(length, reverse, preview, marks)
 -- align_to_string(is_pattern, reverse, preview, marks)

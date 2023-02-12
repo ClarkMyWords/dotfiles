@@ -28,8 +28,4 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 9. Symlink the correct image file in $HOME/.config/sysimages to $HOME/.config/sysimages/LockScreen.png. See META.md in that directory to generate new Lock Screens depending on your monitor geometry.
 
-10. Install [AstroNvim](https://astronvim.github.io), perhaps via the AUR package. Instructions on [this page](https://astronvim.github.io/Configuration/manage_user_config) show how to set up the default configuration.
-
-    10a. Create a directory called "user" in $HOME/.config/nvim/lua (Created by installing AstroNvim and following the configuration). Symlink $HOME/.config/astronvim_config/user to this new directory.
-
-11. Symlink the correct config file in the $HOME/.config/i3\_configs directory to $HOME/.config/i3/config
+10. Symlink the correct config file in the $HOME/.config/i3\_configs directory to $HOME/.config/i3/config
