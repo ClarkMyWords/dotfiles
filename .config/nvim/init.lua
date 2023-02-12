@@ -98,7 +98,7 @@ require("lazy").setup({
                     },
                     Visual = {
                         bg = "${white}",
-                        fg = "${yellow}"
+                        fg = "${black}"
                     },
                 }
             })
