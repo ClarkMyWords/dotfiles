@@ -61,15 +61,17 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("i", "jka", "<esc>A")
-map("n", "oo", "o<esc>")
-map("n", "OO", "O<esc>")
--- What is this hack?
-map("n", "<Leader>h", ":set invhlsearch<CR><CR>k", {silent = true})
+map("i", "jka", "<Esc> A")
+map("n", "oo", "o <Esc>")
+map("n", "OO", "O <Esc>")
+
+map("n", "<Leader>h", "<Cmd>set invhlsearch <CR>", {silent = true})
 
 -- Searches
 map("n", "n", "nzz")
 map("n", "N", "Nzz")
+
+map("n", "t", ":vsplit <CR> <Bar> <C-w><Right> <Bar> :term <CR>i")
 
 -- Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -100,7 +102,13 @@ require("lazy").setup({
                         bg = "${white}",
                         fg = "${black}"
                     },
-                }
+                    ColorColumn = {
+                        bg = "${red}"
+                    },
+                },
+                options = {
+                    transparency = false,
+                },
             })
         end,
     },
@@ -136,7 +144,7 @@ require("lazy").setup({
     {
         "nvim-neo-tree/neo-tree.nvim",
         keys = {
-            { "<leader>t", "<cmd>Neotree toggle<cr>", desc = "NeoTree"},
+            { "<Leader>t", "<Cmd>Neotree toggle<CR>", desc = "NeoTree"},
         },
         config = function()
             require("neo-tree").setup({
@@ -180,17 +188,25 @@ require("lazy").setup({
         "max397574/better-escape.nvim",
         config = function()
             require("better_escape").setup({
-                mapping = {"jk", "kj"},
+                mapping = {"jk", "kj",},
                 timeout = vim.o.timeoutlen,
                 clear_empty_lines = false,
                 keys = function()
-                    return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<Esc>l" or "<Esc"
-                end,
+                    return vim.api.nvim_win_get_cursor(0)[2] > 1 and "<Esc>l"
+                    or "<Esc>"
+            end,
             })
         end
     },
     {
         "bluz71/nvim-linefly",
+    },
+    {
+        "m4xshen/smartcolumn.nvim",
+        config = {
+            colorcolumn = 81,
+            disabled_filetypes = { "help", "text", "markdown", },
+        },
     },
 })
 
@@ -203,6 +219,8 @@ g.linefly_options = {
 
 -- Colors
 vim.cmd("colorscheme onedark_dark")
+local color = require("onedarkpro.helpers")
+local colors = color.get_colors()
 -- Rainbow
 require("nvim-treesitter.configs").setup{
     rainbow = {
@@ -225,7 +243,15 @@ require("nvim-treesitter.configs").setup{
 
 local NS = { noremap = true, silent = true }
 
-vim.keymap.set('x', 'aa', function() require'align'.align_to_char(1, true)             end, NS) -- Aligns to 1 character, looking left
-vim.keymap.set('x', 'as', function() require'align'.align_to_char(2, true, true)       end, NS) -- Aligns to 2 characters, looking left and with previews
-vim.keymap.set('x', 'aw', function() require'align'.align_to_string(false, true, true) end, NS) -- Aligns to a string, looking left and with previews
-vim.keymap.set('x', 'ar', function() require'align'.align_to_string(true, true, true)  end, NS) -- Aligns to a Lua pattern, looking left and with previews
+vim.keymap.set('x', 'aa', function() 
+                require'align'.align_to_char(1, true)
+        end, NS) -- Aligns to 1 character, looking left
+vim.keymap.set('x', 'as', function()
+                require'align'.align_to_char(2, true, true)
+        end, NS) -- Aligns to 2 characters, looking left and with previews
+vim.keymap.set('x', 'aw', function()
+                require'align'.align_to_string(false, true, true)
+        end, NS) -- Aligns to a string, looking left and with previews
+vim.keymap.set('x', 'ar', function()
+                require'align'.align_to_string(true, true, true)
+        end, NS) -- Aligns to a Lua pattern, looking left and with previews
