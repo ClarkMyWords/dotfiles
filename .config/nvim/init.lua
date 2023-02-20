@@ -18,6 +18,18 @@ set.smarttab = true
 set.autoindent = false
 set.smartindent = true
 
+-- Folding
+set.foldenable = true
+set.foldmethod = "expr"
+set.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Autocmds
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+    desc = "Open all folds on enteirng a file",
+    pattern = "*",
+    command = "silent! :%foldopen!",
+})
+
 -- Line Numbering
 set.number = true
 set.relativenumber = true
@@ -49,6 +61,7 @@ set.listchars = {
     nbsp = "␣",
     eol = "↲",
 }
+set.guifont = {"RobotMonoNerdFont Regular", ":h14"}
 
 -- Keybinds
 g.mapleader = " "
@@ -73,6 +86,10 @@ map("n", "N", "Nzz")
 
 map("n", "t", ":vsplit <CR> <Bar> <C-w><Right> <Bar> :term <CR>i")
 
+-- Marks
+map("n", ";", "`")
+map("v", ";", "`")
+
 -- Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -94,21 +111,26 @@ require("lazy").setup({
         priority = 1000,
         config = function()
             require("onedarkpro").setup({
-                highlights = {
-                    Error = {
-                        bg = "${red}",
-                    },
+                highlights = { --[[ Reference:
+olimorris/onedarkpro.nvim/blob/main/lua/onedarkpro/highlights/editor.lua
+]]
+                    Error = { bg = "${red}", },
                     Visual = {
                         bg = "${white}",
-                        fg = "${black}"
+                        fg = "${black}",
                     },
-                    ColorColumn = {
-                        bg = "${red}"
+                    ColorColumn = { bg = "${red}", },
+                    MatchParen = { bg = "${black}", },
+                    Search = {
+                        fg = "${black}",
+                        bg = "${yellow}",
+                    },
+                    IncSearch = {
+                        fg = "${black}",
+                        bg = "${yellow}",
                     },
                 },
-                options = {
-                    transparency = false,
-                },
+                options = {transparency = false, },
             })
         end,
     },
@@ -127,6 +149,9 @@ require("lazy").setup({
     },
     {
         "MunifTanjim/nui.nvim",
+    },
+    {
+        "tpope/vim-repeat",
     },
     -- Required
     {
@@ -207,6 +232,20 @@ require("lazy").setup({
             colorcolumn = 81,
             disabled_filetypes = { "help", "text", "markdown", },
         },
+    },
+    {
+        "ggandor/leap.nvim",
+        config = function()
+            require("leap").add_default_mappings()
+        end
+    },
+    {
+        "chentoast/marks.nvim",
+        config = function()
+            require("marks").setup({
+                default_mappings = true,
+            })
+        end
     },
 })
 

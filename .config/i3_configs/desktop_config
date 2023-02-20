@@ -1,6 +1,6 @@
 # Custom Sway Config
 
-font pango:RobotoMonoNerdFont Regular 12
+font pango:RobotoMonoNerdFont Regular 14
 
 focus_follows_mouse no
 focus_on_window_activation urgent
@@ -124,8 +124,8 @@ assign [class="hamsket"] workspace 11
 assign [class="Hamsket"] workspace 11
 assign [class="discord"] workspace 12
 assign [class="Discord"] workspace 12
-for_window [class="spotify"] move to  workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
-for_window [class="Spotify"] move to  workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
+for_window [class="spotify"] move to workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
+for_window [class="Spotify"] move to workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
 
 bindsym Mod4+Return exec kitty
 bindsym Mod4+q kill

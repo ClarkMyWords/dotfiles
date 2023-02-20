@@ -1,6 +1,6 @@
 # Custom Sway Config
 #
-font pango:RobotoMonoNerdFont Regular 12
+font pango:RobotoMonoNerdFont Regular 14
 
 focus_follows_mouse no
 focus_on_window_activation urgent
