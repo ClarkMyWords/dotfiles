@@ -23,14 +23,17 @@ HISTCONTROL=ingoredups:erasedups
 #setopt -s histappend ???
 
 alias redo="sudo \"$SHELL\" -c \"$(history -p !!)\""
+
 alias ls="exa -l --icons --git"
 alias la="exa -laa --icons --git"
+alias cat="bat --paging=never"
+alias less="bat --paging=always"
+
 alias :q="exit"
 alias getip="curl ifconfig.me && echo"
 alias ssh-server="ssh -p 22222 clark@146.70.57.12"
 alias ssh-pluto="ssh ch3136@pluto.cse.msstate.edu"
 alias rcon-vanilla="mcrcon -H 146.70.57.12 -p minecontrol"
-alias cat="bat"
 alias pacall="pacall.sh"
 alias update="paru -Syyu && system-clean.sh"
 alias md="md.sh"
