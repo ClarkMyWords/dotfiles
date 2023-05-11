@@ -10,4 +10,5 @@ bumblebee-status -m pulsein pulseout brightness nic battery date time \
     pulseout.alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink="Speakers" \
     pulsein.alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_6__source="Microphone" \
     pulsein.alsa_input.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw__sofhdadsp__source="Microphone" \
+    pulsein.alsa_outupt.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink="Speakers" \
     -t clarks-theme
