@@ -20,12 +20,10 @@ sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-6. Symlink the config file at $HOME/.config/root/rootbashrc to /root/.bashrc
+6. Symlink the config file at $HOME/.config/autologin/conf to /etc/runit/sv/agetty-tty1/conf
 
-7. Symlink the config file at $HOME/.config/autologin/conf to /etc/runit/sv/agetty-tty1/conf
+7. Symlink the correct config file in the $HOME/.config/neofetch\_configs directory to $HOME/.config/neofetch/config.conf
 
-8. Symlink the correct config file in the $HOME/.config/neofetch\_configs directory to $HOME/.config/neofetch/config.conf
+8. Symlink the correct image file in $HOME/.config/sysimages to $HOME/.config/sysimages/LockScreen.png. See META.md in that directory to generate new Lock Screens depending on your monitor geometry.
 
-9. Symlink the correct image file in $HOME/.config/sysimages to $HOME/.config/sysimages/LockScreen.png. See META.md in that directory to generate new Lock Screens depending on your monitor geometry.
-
-10. Symlink the correct config file in the $HOME/.config/i3\_configs directory to $HOME/.config/i3/config
+9. Symlink the correct config file in the $HOME/.config/i3\_configs directory to $HOME/.config/i3/config
