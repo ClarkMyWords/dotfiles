@@ -1,4 +1,4 @@
-# Custom Sway Config
+# Custom i3 Config
 #
 font pango:RobotoMonoNerdFont Regular 14
 
@@ -128,19 +128,7 @@ exec --no-startup-id i3-msg "workspace 1"
 bar {
         font pango:RobotoMonoNerdFont Regular 12
         position top
-        tray_output none
 
-        status_command laptop-status.sh
+        status_command i3status -c $HOME/.config/i3status/config
 
-        colors {
-                background #007F00
-                statusline #007F00
-                separator  #000000
-
-                focused_workspace  #00FF00 #00FF00 #000000
-                active_workspace   #007F00 #007F00 #FFFFFF
-                inactive_workspace #007F00 #007F00 #FFFFFF
-                urgent_workspace   #007F00 #FF0000 #FFFFFF
-                binding_mode       #2F343A #900000 #FFFFFF
-            }
-    }
+}

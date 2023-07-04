@@ -12,16 +12,15 @@ order += "tztime local"
 volume master {
     format = "♪: %volume"
     format_muted ="♪: muted (%volume)"
-    device = "pulse:alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo"
+}
+
+path_exists VPN {
+    path = "/proc/sys/net/ipv4/conf/wg-mullvad"
 }
 
 ethernet _first_ {
     format_up = "E: %ip (%speed)"
     format_down = "E: down"
-}
-
-path_exists VPN {
-    path = "/proc/sys/net/ipv4/conf/wg-mullvad"
 }
 
 tztime local {
