@@ -1,3 +1,4 @@
+
 #TabsToolbar:not([customize="true"])
 {
   visibility: collapse !important;
@@ -8,5 +9,4 @@
 }
 
 #sidebar-box[sidebarcommand="tabcenter-reborn_ariasuni-sidebar-action"] #sidebar-header{
-    visiblity: collapse;
-}
+    visiblity: collapse !important;

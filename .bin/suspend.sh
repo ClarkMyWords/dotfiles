@@ -8,7 +8,7 @@ main(){
         :
     done
 
-    loginctl suspend
+    systemctl suspend
 }
 
 main

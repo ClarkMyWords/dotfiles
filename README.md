@@ -16,7 +16,7 @@
 5. Symlink the correct config file in the $HOME/.config/grub driectory to /etc/default/grub and run
 
 ```shell
-sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
