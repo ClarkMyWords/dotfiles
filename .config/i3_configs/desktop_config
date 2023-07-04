@@ -21,6 +21,8 @@ exec --no-startup-id dunst
 
 exec --no-startup-id desktop-idle.sh
 
+exec --no-startup-id gnome_keyring.sh
+
 workspace 1 output DP-1
 workspace 2 output DP-1
 workspace 3 output DP-1
@@ -120,12 +122,8 @@ bindsym Mod4+Shift+backslash move container to workspace 28
 bindsym Mod4+Shift+minus move container to workspace 29
 bindsym Mod4+Shift+equal move container to workspace 30
 
-assign [class="hamsket"] workspace 11
-assign [class="Hamsket"] workspace 11
 assign [class="discord"] workspace 12
 assign [class="Discord"] workspace 12
-for_window [class="spotify"] move to workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
-for_window [class="Spotify"] move to workspace 13, workspace --no-auto-back-and-forth 13; workspace 11
 
 bindsym Mod4+Return exec kitty
 bindsym Mod4+q kill
@@ -146,30 +144,17 @@ bindsym XF86AudioMicMute exec micmute.sh
 
 bindsym Mod4+f fullscreen toggle
 
-exec --no-startup-id i3-msg "workspace 1; exec kitty; workspace 1"
-exec --no-startup-id i3-msg "workspace 2; exec firefox; workspace 1"
-exec --no-startup-id i3-msg "workspace 11; exec hamsket; workspace 1"
-exec --no-startup-id i3-msg "workspace 12; exec discord; workspace 1"
-exec --no-startup-id i3-msg "workspace 13; exec spotify; workspace 1"
-exec --no-startup-id i3-msg "workspace 14; exec kitty btop; workspace 1"
+exec --no-startup-id i3-msg "workspace 1; exec kitty"
+exec --no-startup-id i3-msg "workspace 2; exec firefox -p default"
+exec --no-startup-id i3-msg "workspace 11; exec firefox -p MailUser"
+exec --no-startup-id i3-msg "workspace 12; exec discord"
+exec --no-startup-id i3-msg "workspace 13; exec kitty btop"
 
 # Status Bar
 bar {
         font pango:RobotoMonoNerdFont Regular 12
         position top
-        tray_output none
 
-        status_command desktop-status.sh
+        status_command i3status -c $HOME/.config/i3status/config
 
-        colors {
-                background #007F00
-                statusline #007F00
-                separator  #000000
-
-                focused_workspace  #00FF00 #00FF00 #000000
-                active_workspace   #007F00 #007F00 #FFFFFF
-                inactive_workspace #007F00 #007F00 #FFFFFF
-                urgent_workspace   #007F00 #FF0000 #FFFFFF
-                binding_mode       #2F343A #900000 #FFFFFF
-            }
-    }
+}
