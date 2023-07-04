@@ -8,7 +8,8 @@ main(){
     :
     done
 
-    lock.sh && loginctl suspend
+    lock.sh &
+    systemctl suspend && dunstctl set-paused false
 }
 
 main

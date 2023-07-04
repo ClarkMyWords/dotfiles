@@ -7,4 +7,4 @@ do
   :
 done
 
-loginctl poweroff
+systemctl poweroff
