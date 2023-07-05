@@ -1,3 +1,3 @@
 #!/bin/sh
 
-curl ifconfig.me && echo
+curl ifconfig.co
