@@ -18,4 +18,3 @@ export KEYTIMEOUT=5
 
 export PATH=$PATH:~/.local/bin:~/.bin
 # Rust, lsp, etc.
-

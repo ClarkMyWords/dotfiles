@@ -6,11 +6,6 @@ focus_follows_mouse no
 focus_on_window_activation urgent
 focus_wrapping no
 
-client.focused          #00d900 #00a600 #ffffff #e5e500     #00d900
-client.focused_inactive #666666 #000000 #ffffff #e5e500     #666666
-client.unfocused        #666666 #000000 #ffffff #999900     #666666
-client.urgent           #000000 #e50000 #ffffff #e5e500     #00d900
-client.placeholder      #000000 #000000 #ffffff #000000     #00a600
 default_border none
 
 exec --no-startup-id .fehbg
@@ -155,6 +150,6 @@ bar {
         font pango:RobotoMonoNerdFont Regular 12
         position top
 
-        status_command i3status -c $HOME/.config/i3status/config
+        status_command py3status -c $HOME/.config/i3status/config
 
 }

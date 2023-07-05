@@ -1,0 +1,65 @@
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 1
+}
+
+order += "keyboard_locks" # CAPS/NUM Lock
+order += "arch_updates" # Arch Linux Updates
+order += "audiosink" # Change Audio Sink
+order += "volume_status input" # Audio Input
+order += "volume_status output" # Audio Output
+order += "networkmanager" # Network Manager
+order += "tztime local" # Local Time
+
+# CAPS/NUM Lock
+keyboard_locks {
+    format = "\?color=good [\if=num_lock NUM][\?soft  ]"
+    format += "[\?if=caps_lock CAPS]"
+}
+
+# Arch Linux Update
+arch_updates {
+    format = "Official: {pacman} AUR: {aur}"
+}
+
+# Change Audio Sink
+audiosink {
+    display_name_mapping = {"HyperX 7.1 Audio Analog Stereo": "Cloud IIs", "Starship/Matisse HD Audio Controller Analog Stereo": "Speakers"}
+    sinks_to_ignore = ["USB PnP Audio Device Analog Stereo", "HDA ATI HDMI Digital Stereo (HDMI)"]
+    cache_timeout = 1
+}
+
+# Audio Input
+volume_status input {
+    command = "pactl"
+    format = ' {percentage}%'
+    format_muted = ' {percentage}%'
+    button_down = 5
+    button_mute = 1
+    button_up = 4
+    is_input = true
+    thresholds = [(0, 'bad'), (5, 'good')]
+    max_volume = 100
+}
+
+# Audio Output
+volume_status output {
+    command = "pactl"
+    format = ' {percentage}%'
+    format_muted = ' {percentage}%'
+    button_down = 5
+    button_mute = 1
+    button_up = 4
+    thresholds = [(0, 'bad'), (5, 'good')]
+    max_volume = 100
+}
+
+# Network Manager
+# networkmanager {}
+
+# Local Time
+tztime local {
+    format = "%Y-%m-%d %H:%M:%S"
+    hide_if_equals_localtime = false
+}
