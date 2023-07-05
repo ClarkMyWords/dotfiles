@@ -150,6 +150,6 @@ bar {
         font pango:RobotoMonoNerdFont Regular 12
         position top
 
-        status_command py3status -c $HOME/.config/i3status/config
+        status_command py3status -c $HOME/.config/py3status/config
 
 }

@@ -4,23 +4,27 @@ general {
     interval = 1
 }
 
+order += "backlight" # Brightness
 order += "keyboard_locks" # CAPS/NUM Lock
-order += "arch_updates" # Arch Linux Updates
 order += "audiosink" # Change Audio Sink
 order += "volume_status input" # Audio Input
 order += "volume_status output" # Audio Output
 order += "networkmanager" # Network Manager
+order += "battery_level" # Battery
 order += "tztime local" # Local Time
+
+# Brightness
+backlight {
+    brightness_delta = 5
+    brightness_minimal = 5
+    cache_timout = 1
+    command = "xbacklight" # TODO brightnessctl
+}
 
 # CAPS/NUM Lock
 keyboard_locks {
     format = "\?color=good [\if=num_lock NUM][\?soft  ]"
     format += "[\?if=caps_lock CAPS]"
-}
-
-# Arch Linux Update
-arch_updates {
-    format = "Official: {pacman} AUR: {aur}"
 }
 
 # Change Audio Sink
@@ -57,6 +61,13 @@ volume_status output {
 
 # Network Manager
 # networkmanager {}
+
+# Battery
+battery_level {
+    blocks = ''
+    charging_character = ''
+    format = '{status} {icon} {percent}%'
+}
 
 # Local Time
 tztime local {

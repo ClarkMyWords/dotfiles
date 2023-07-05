@@ -5,7 +5,6 @@ general {
 }
 
 order += "keyboard_locks" # CAPS/NUM Lock
-order += "arch_updates" # Arch Linux Updates
 order += "audiosink" # Change Audio Sink
 order += "volume_status input" # Audio Input
 order += "volume_status output" # Audio Output
@@ -16,11 +15,6 @@ order += "tztime local" # Local Time
 keyboard_locks {
     format = "\?color=good [\if=num_lock NUM][\?soft  ]"
     format += "[\?if=caps_lock CAPS]"
-}
-
-# Arch Linux Update
-arch_updates {
-    format = "Official: {pacman} AUR: {aur}"
 }
 
 # Change Audio Sink

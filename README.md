@@ -28,4 +28,4 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 8. Symlink the correct config file in the $HOME/.config/i3\_configs directory to $HOME/.config/i3/config
 
-9. Symlink the correct config file in the $HOME/.config/i3status\_configs directory to $HOME/.config/i3status/config
+9. Symlink the correct config file in the $HOME/.config/py3status\_configs directory to $HOME/.config/py3status/config
