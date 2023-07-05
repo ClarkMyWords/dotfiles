@@ -4,14 +4,20 @@ general {
     interval = 1
 }
 
-order += "backlight" # Brightness
 order += "keyboard_locks" # CAPS/NUM Lock
+order += "backlight" # Brightness
 order += "audiosink" # Change Audio Sink
 order += "volume_status input" # Audio Input
 order += "volume_status output" # Audio Output
 order += "networkmanager" # Network Manager
 order += "battery_level" # Battery
 order += "tztime local" # Local Time
+
+# CAPS/NUM Lock
+keyboard_locks {
+    format = "\?color=good [\?if=num_lock NUM][\?soft  ]"
+    format += "[\?if=caps_lock CAPS]"
+}
 
 # Brightness
 backlight {
@@ -21,16 +27,11 @@ backlight {
     command = "xbacklight" # TODO brightnessctl
 }
 
-# CAPS/NUM Lock
-keyboard_locks {
-    format = "\?color=good [\if=num_lock NUM][\?soft  ]"
-    format += "[\?if=caps_lock CAPS]"
-}
 
 # Change Audio Sink
 audiosink {
-    display_name_mapping = {"HyperX 7.1 Audio Analog Stereo": "Cloud IIs", "Starship/Matisse HD Audio Controller Analog Stereo": "Speakers"}
-    sinks_to_ignore = ["USB PnP Audio Device Analog Stereo", "HDA ATI HDMI Digital Stereo (HDMI)"]
+    display_name_mapping = {"HyperX 7.1 Audio Analog Stereo": "Cloud IIs", "Starship/Matisse HD Audio Controller Analog Stereo": "Speakers"} # ??
+    sinks_to_ignore = ["USB PnP Audio Device Analog Stereo", "HDA ATI HDMI Digital Stereo (HDMI)"] # ??
     cache_timeout = 1
 }
 

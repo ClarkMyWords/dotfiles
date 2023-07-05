@@ -13,7 +13,7 @@ order += "tztime local" # Local Time
 
 # CAPS/NUM Lock
 keyboard_locks {
-    format = "\?color=good [\if=num_lock NUM][\?soft  ]"
+    format = "\?color=good [\?if=num_lock NUM][\?soft  ]"
     format += "[\?if=caps_lock CAPS]"
 }
 
