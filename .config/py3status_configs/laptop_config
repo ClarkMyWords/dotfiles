@@ -39,8 +39,8 @@ backlight {
 
 # Change Audio Sink
 audiosink {
-    display_name_mapping = {"HyperX 7.1 Audio Analog Stereo": "Cloud IIs", "Starship/Matisse HD Audio Controller Analog Stereo": "Speakers"} # ??
-    sinks_to_ignore = ["USB PnP Audio Device Analog Stereo", "HDA ATI HDMI Digital Stereo (HDMI)"] # ??
+    display_name_mapping = {"Tiger Lake-LP Smart Sound Technology Audio Controller Speaker + Headphones": "Laptop Output"}
+    sinks_to_ignore = ["Tiger Lake-LP Smart Sound Technology Audio Controller HDMI / DisplayPort 1 Output", "Tiger Lake-LP Smart Sound Technology Audio Controller HDMI / DisplayPort 2 Output", "Tiger Lake-LP Smart Sound Technology Audio Controller HDMI / DisplayPort 3 Output"]
     cache_timeout = 1
 }
 
