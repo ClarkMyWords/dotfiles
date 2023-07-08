@@ -9,5 +9,5 @@ reboot
 }
 
 menuentry "Shut Down" {
-poweroff
+halt
 }
