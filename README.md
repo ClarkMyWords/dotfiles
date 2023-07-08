@@ -15,7 +15,9 @@
 
 5. Symlink the config file at $HOME/.config/firefox/MailUserChrome.css to the relevant firefox profile, again remembering the custom stylesheets
 
-5. Symlink the correct config file in the $HOME/.config/grub directory to /etc/default/grub and run
+5. Symlink the correct config file in the $HOME/.config/grub directory to /etc/default/grub and run:
+
+    5a. On the laptop, also symlink the $HOME/.config/grub/40_custom file to /etc/grub.d/40_custom, then run:
 
 ```shell
 sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
