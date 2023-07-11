@@ -22,7 +22,7 @@ keyboard_locks {
 # Weather
 external_script weather {
     format = "{output}"
-    script_path = "curl 'wttr.in/Starkville?format=3'"
+    script_path = "curl -s 'wttr.in/Starkville?u&format=3'"
     cache_timeout = 600
 
 }

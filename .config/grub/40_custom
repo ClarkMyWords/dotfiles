@@ -8,6 +8,6 @@ menuentry "Reboot" {
 reboot
 }
 
-menuentry "Shut Down" {
+menuentry "Poweroff" {
 halt
 }
