@@ -6,7 +6,6 @@ general {
 
 order += "keyboard_locks" # CAPS/NUM Lock
 # Music will go on this line
-order += "external_script weather" # Weather
 order += "audiosink" # Change Audio Sink
 order += "volume_status input" # Audio Input
 order += "volume_status output" # Audio Output
@@ -17,14 +16,6 @@ order += "tztime local" # Local Time
 keyboard_locks {
     format = "\?color=good [\?if=num_lock NUM][\?soft  ]"
     format += "[\?if=caps_lock CAPS]"
-}
-
-# Weather
-external_script weather {
-    format = "{output}"
-    script_path = "curl -s 'wttr.in/Starkville?u&format=3'"
-    cache_timeout = 600
-
 }
 
 # Change Audio Sink
