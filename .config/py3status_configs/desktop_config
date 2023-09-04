@@ -20,8 +20,8 @@ keyboard_locks {
 
 # Change Audio Sink
 audiosink {
-    display_name_mapping = {"HyperX 7.1 Audio Analog Stereo": "Cloud IIs", "Starship/Matisse HD Audio Controller Analog Stereo": "Speakers"}
-    sinks_to_ignore = ["USB PnP Audio Device Analog Stereo", "HDA ATI HDMI Digital Stereo (HDMI)"]
+    display_name_mapping = {"alsa_output.usb-Kingston_HyperX_Virtual_Surround_Sound_00000000-00.analog-stereo": "Cloud IIs", "alsa_output.pci-0000_0a_00.4.analog-stereo": "Speakers"}
+    sinks_to_ignore = ["alsa_output.pci-0000_08_00.1.hdmi-stereo", "alsa_output.pci-0000_0a_00.4.analog-stereo"]
     cache_timeout = 1
 }
 

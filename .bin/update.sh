@@ -1,4 +1,3 @@
 #!/bin/sh
 
-paru -Syyu
-system-clean.sh
+paru -Syyu && system-clean.sh

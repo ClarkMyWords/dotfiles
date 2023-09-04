@@ -19,11 +19,16 @@ zstyle ':completion:*' menu select rehash true
 
 [[ -f "$HOME/.zshenv" ]] && source "$HOME/.zshenv"
 
-alias ls="ls.sh"
-alias la="la.sh"
-alias cat="cat.sh"
-alias less="less.sh"
-alias grep="grep.sh"
+#alias ls="ls.sh"
+alias ls="exa -l --icons --git"
+#alias la="la.sh"
+alias la="exa -laa --icons -git"
+#alias cat="cat.sh"
+alias cat="bat --paging=never --color=always"
+#alias less="less.sh"
+alias less="bat --paging=always --color=always"
+#alias grep="grep.sh"
+alias grep="grep --line-number --color=always"
 
 alias getip="getip.sh"
 alias pacall="pacall.sh"
