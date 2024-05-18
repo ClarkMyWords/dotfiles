@@ -135,6 +135,11 @@ bindsym XF86AudioLowerVolume exec volumedown.sh
 bindsym XF86AudioMute exec volumemute.sh
 bindsym XF86AudioMicMute exec micmute.sh
 
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
 bindsym Mod4+f fullscreen toggle
 
 exec --no-startup-id i3-msg "workspace 1; exec kitty"

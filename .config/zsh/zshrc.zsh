@@ -20,9 +20,9 @@ zstyle ':completion:*' menu select rehash true
 [[ -f "$HOME/.zshenv" ]] && source "$HOME/.zshenv"
 
 #alias ls="ls.sh"
-alias ls="exa -l --icons --git"
+alias ls="eza -l --icons --git"
 #alias la="la.sh"
-alias la="exa -laa --icons -git"
+alias la="eza -laa --icons -git"
 #alias cat="cat.sh"
 alias cat="bat --paging=never --color=always"
 #alias less="less.sh"
