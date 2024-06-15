@@ -1,0 +1,14 @@
+[config]
+	email = clarkhensley@duck.com
+	name = Clark Hensley
+[user]
+	email = clarkhensley@duck.com
+	name = Clark Hensley
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[init]
+	defaultBranch = main

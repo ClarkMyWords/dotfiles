@@ -1,21 +1,4 @@
-# Custom i3 Config
-
-font pango:RobotoMonoNerdFont Regular 14
-
-focus_follows_mouse no
-focus_on_window_activation urgent
-focus_wrapping no
-
-default_border none
-
-exec --no-startup-id .fehbg
-
-exec --no-startup-id dunst
-
-exec --no-startup-id desktop-idle.sh
-
-exec --no-startup-id gnome_keyring.sh
-
+#exec --no-startup-id desktop-idle.sh
 workspace 1 output DP-1
 workspace 2 output DP-1
 workspace 3 output DP-1
@@ -118,41 +101,8 @@ bindsym Mod4+Shift+equal move container to workspace 30
 assign [class="discord"] workspace 12
 assign [class="Discord"] workspace 12
 
-bindsym Mod4+Return exec kitty
-bindsym Mod4+q kill
-bindsym Mod4+space exec rofi -modi drun -show | xargs i3-msg exec --
-bindsym Mod4+b exec bwmenu --clear=60 --auto-lock 360
-bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
-
-bindsym Mod4+s exec locked-suspend.sh
-bindsym Mod4+r exec locked-reboot.sh
-bindsym Mod4+p exec locked-poweroff.sh
-
-bindsym Print exec flameshot gui
-
-bindsym XF86AudioRaiseVolume exec volumeup.sh
-bindsym XF86AudioLowerVolume exec volumedown.sh
-bindsym XF86AudioMute exec volumemute.sh
-bindsym XF86AudioMicMute exec micmute.sh
-
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-
-bindsym Mod4+f fullscreen toggle
-
 exec --no-startup-id i3-msg "workspace 1; exec kitty"
 exec --no-startup-id i3-msg "workspace 2; exec firefox -p default"
 exec --no-startup-id i3-msg "workspace 11; exec firefox -p MailUser"
 exec --no-startup-id i3-msg "workspace 12; exec discord"
 exec --no-startup-id i3-msg "workspace 13; exec kitty btop"
-
-# Status Bar
-bar {
-        font pango:RobotoMonoNerdFont Regular 12
-        position top
-
-        status_command py3status -c $HOME/.config/py3status/config
-
-}

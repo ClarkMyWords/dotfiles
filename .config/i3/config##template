@@ -1,0 +1,47 @@
+# Custom i3 Config
+
+exec --no-startup-id picom -bcf
+exec --no-startup-id xrandr --output DP-1 --primary --mode 1920x1080 --output HDMI-1 --mode 1600x900 --left-of DP-1 --output DP-3 --mode 1920x1080 --left-of HDMI-1
+
+font pango:RobotoMonoNerdFont Regular 14
+
+focus_follows_mouse no
+focus_on_window_activation urgent
+focus_wrapping no
+
+default_border none
+
+exec --no-startup-id fehbg.sh
+
+exec --no-startup-id dunst
+
+exec --no-startup-id gnome_keyring.sh
+
+bindsym Mod4+Return exec kitty
+bindsym Mod4+q kill
+bindsym Mod4+space exec rofi -modi drun -show | xargs i3-msg exec --
+bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+
+bindsym Mod4+s exec locked-suspend.sh
+bindsym Mod4+r exec locked-reboot.sh
+bindsym Mod4+p exec locked-poweroff.sh
+
+bindsym Print exec flameshot gui
+
+bindsym XF86AudioRaiseVolume exec volumeup.sh
+bindsym XF86AudioLowerVolume exec volumedown.sh
+bindsym XF86AudioMute exec volumemute.sh
+bindsym XF86AudioMicMute exec micmute.sh
+
+# ??? TODO
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+bindsym Mod4+f fullscreen toggle
+
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+
+# host-specific config
+{% include "config.{{ yadm.class }}" %}

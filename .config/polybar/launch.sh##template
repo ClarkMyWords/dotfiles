@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Terminate already running bar instances
+polybar-msg cmd quit
+
+{% if yadm.class == "Desktop" %}
+# Launch Polybar, using default config location ~/.config/polybar/config.ini
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+      if [ "$m" == "HDMI-1" ]; then
+        MONITOR=$m polybar --reload center &
+      elif [ "$m" == "DP-1" ]; then
+        MONITOR=$m polybar --reload left &
+      elif [ "$m" == "DP-3" ]; then
+        MONITOR=$m polybar --reload right &
+      fi
+  done
+else
+  polybar --reload center &
+fi
+
+{% endif %}
+
+{% if yadm.class == "Laptop" %}
+polybar --reload laptop &
+{% endif %}

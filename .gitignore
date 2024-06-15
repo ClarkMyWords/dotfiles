@@ -1,12 +1,2 @@
-.config/gh
-.bin/rofi-power-menu-repo
-
 # Use the ones that work for both Laptop and Desktop with symlinks instead
-.config/i3
-.config/i3/*
-.config/py3status
-.config/py3status/*
-.config/neofetch
-.config/neofetch/*
 .config/nvim/lazy-lock.json
-.config/sysimages/LockScreen.png

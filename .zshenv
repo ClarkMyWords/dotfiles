@@ -16,5 +16,5 @@ export VISUAL=$(which nvim)
 
 export KEYTIMEOUT=5
 
-export PATH=$PATH:~/.local/bin:~/.bin
+export PATH=$PATH:~/.local/bin
 # Rust, lsp, etc.
