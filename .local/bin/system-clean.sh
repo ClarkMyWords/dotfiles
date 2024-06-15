@@ -11,6 +11,6 @@ paccache -r
 echo "Removing all uninstalled packages"
 paccache -ruk0
 
-$HOME/.bin/parucache.sh
+$HOME/.local/bin/parucache.sh
 
 rm $LOCKFILE
