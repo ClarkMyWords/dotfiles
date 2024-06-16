@@ -1,14 +1,13 @@
 #!/bin/sh
 
 xidlehook \
-    --once \
     --detect-sleep \
     --not-when-audio \
     --not-when-fullscreen \
 {% if yadm.class == "Desktop" %}
-    --timer 360 suspend wake-and-restart-idle.sh
+    --timer 360 "systemctl suspend" wake.sh
 {% endif %}
 {% if yadm.class == "Laptop" %}
-    --timer 120 dim.sh wake-and-restart-idle.sh \
-    --timer 240 suspend wake-and-restart-idle.sh
+    --timer 120 dim.sh wake.sh \
+    --timer 240 "systemctl suspend" wake.sh
 {% endif %}

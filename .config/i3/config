@@ -47,7 +47,6 @@ bindsym Mod4+f fullscreen toggle
 exec --no-startup-id $HOME/.config/polybar/launch.sh
 
 # host-specific config
-#exec --no-startup-id desktop-idle.sh
 workspace 1 output DP-1
 workspace 2 output DP-1
 workspace 3 output DP-1

@@ -1,8 +1,6 @@
 exec --no-startup-id (sleep 1 && restore-brightness.sh)
 exec --no-startup-id (sleep 1 && starting-lights.sh)
 
-exec --no-startup-id laptop-idle.sh
-
 workspace 1 output eDP-1
 workspace 2 output eDP-1
 workspace 3 output eDP-1
