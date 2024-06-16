@@ -3,7 +3,7 @@
 ## To Use:
 1. Use [yadm](https://yadm.io) to clone this repo
     
-    1a. yadm should automatically perform a `bootstrap` which will perform a number of post-processing stepsS
+    1a. yadm should automatically perform a `bootstrap` which will perform a number of post-processing steps.
 
     1b. Before cloning with yadm, be sure to set `yadm config local.class <class>`. I use the `Desktop` and `Laptop` classes, and one of these ***MUST*** be set for this to work.
 
