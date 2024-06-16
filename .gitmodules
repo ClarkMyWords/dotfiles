@@ -1,6 +1,3 @@
-[submodule ".local/bin/rofi-power-menu-repo"]
-	path = .local/bin/rofi-power-menu-repo
-	url = https://www.github.com/ClarkMyWords/rofi-power-menu
 [submodule ".config/polybar/scripts/polybar-i3-window"]
 	path = .config/polybar/scripts/polybar-i3-window
 	url = https://github.com/madhat2r/polybar-i3-window.git

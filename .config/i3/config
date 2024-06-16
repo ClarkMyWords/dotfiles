@@ -5,6 +5,9 @@ exec --no-startup-id xrandr --output DP-1 --primary --mode 1920x1080 --output HD
 
 font pango:RobotoMonoNerdFont Regular 14
 
+exec --no-startup-id idle.sh
+exec --no-startup-id light-locker --lock-after-screensaver=5 --lock-on-suspend --lock-on-lid
+
 focus_follows_mouse no
 focus_on_window_activation urgent
 focus_wrapping no
@@ -20,7 +23,7 @@ exec --no-startup-id gnome_keyring.sh
 bindsym Mod4+Return exec kitty
 bindsym Mod4+q kill
 bindsym Mod4+space exec rofi -modi drun -show | xargs i3-msg exec --
-bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu"
+bindsym Mod4+Escape exec rofi -show power-menu -modi "power-menu:rofi-power-menu --choices=lockscreen/suspend/reboot/shutdown --confirm=reboot/shutdown"
 
 bindsym Mod4+s exec locked-suspend.sh
 bindsym Mod4+r exec locked-reboot.sh
