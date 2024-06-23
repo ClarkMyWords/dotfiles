@@ -1,11 +1,5 @@
 #!/bin/sh
 
-# Setup rofi-power-menu fork
-ln -sf $HOME/.local/bin/rofi-power-menu-repo/rofi-power-menu $HOME/.local/bin/rofi-power-menu
-
-# Setup pacman.conf
-ln -sf $HOME/.config/pacman/pacman.conf /etc/pacman.conf
-
 # yadm templates
 yadm alt
 
