@@ -43,11 +43,9 @@ bindkey '^k' history-search-backward
 bindkey '^j' history-search-forward
 
 # Prompt
-# https://github.com/sindresorhus/pure
-zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
-zinit light sindresorhus/pure
-# https://github.com/sindresorhus/pure/wiki/Custimizations,-hacks-and-tweaks
-PROMPT='%F{white}%* '$PROMPT
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+zinit light starship/starship
+eval "$(starship init zsh)"
 
 # History
 HISTSIZE=16384
