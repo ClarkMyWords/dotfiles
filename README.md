@@ -29,11 +29,13 @@ sudo grub-mkconfig -o /boot/efi/grub/grub.cfg
 sudo ln -sf $HOME/.config/pacman/pacman.conf /etc/pacman.conf
 ```
 
-9. `$HOME/.config/sysimages/icon.png` and `$HOME/.config/sysimages/lockscreen.png` should be symlinked to `/usr/share/icons/custom`:
+9. `$HOME/.config/sysimages/icon.png` and `$HOME/.config/sysimages/lockscreen.png` should be COPIED to `/usr/share/icons/custom` (symlinking messes with LightDM-GTK-Greeter's permissions):
 ```sh
 sudo mkdir -p /usr/share/icons/custom
-sudo ln -sf $HOME/.config/sysimages/icon.png /usr/share/icons/custom/icon.png
-sudo ln -sf $HOME/.config/sysimages/lockscreen.png /usr/share/icons/custom/lockscreen.png
+sudo cp $HOME/.config/sysimages/icon.png /usr/share/icons/custom/icon.png
+sudo chmod 555 /usr/share/icons/custom/icon.png
+sudo cp $HOME/.config/sysimages/lockscreen.png /usr/share/icons/custom/lockscreen.png
+sudo chmod 555 /usr/share/icons/custom/lockscreen.png
 ```
 
 10. `$HOME/.config/lightdm/lightdm.conf` should be symlinked to `/etc/lightdm/lightdm.conf` and `$HOME/.config/lightdm/lightdm-gtk-greeter.conf` should be symlinked to `/etc/lightdm/lightdm-gtk-greeter.conf`:
