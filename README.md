@@ -7,11 +7,12 @@
 
 3. Before cloning with yadm, be sure to set `yadm config local.class <class>`. I use the `Desktop` and `Laptop` classes, and one of these ***MUST*** be set for this to work.
 
-However, yadm can't handle firefox profiles, so these must be done manually:
+4. However, yadm can't handle firefox profiles, so these must be done manually (it's the same userChrome profile for both the main Firefox and mail Firefox profiles):
+```sh
+ln -sf $HOME/.config/firefox/userChrome.css $HOME/.mozilla/firefox/\<profile\>/chrome/userChrome.css
+```
 
-4. Symlink the config file at $HOME/.config/firefox/userChrome.css to $HOME/.mozilla/firefox/\<profile\>/chrome/userChrome.css and the $HOME/.mozilla/firefox/\<profile\>/chrome/userChrome.css
-
-5. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true in ***BOTH*** profiles
+5. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true in ***ALL*** profiles
 
 6. A few files need to be sylinked to locations in `/etc` or `/usr/share`. In lieu of having the `bootstrap` perform that, here are the commands:
 
