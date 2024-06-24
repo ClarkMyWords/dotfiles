@@ -54,10 +54,10 @@ format = "[$duration]($style) "
 style = "yellow"
 
 [time]
-format = '[$time ]($style)'
+format = '[$time]($style) '
 style = 'bold white'
 disabled = false
 
 [python]
 format = "[$virtualenv]($style)"
-style = "bright-black"
+style = "yellow"
