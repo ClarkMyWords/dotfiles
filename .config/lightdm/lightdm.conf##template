@@ -122,7 +122,12 @@ display-setup-script=/usr/share/multimonitor.sh
 #session-setup-script=
 #session-cleanup-script=
 #autologin-guest=false
+{% if yadm.class == "Desktop" %}
 #autologin-user=
+{% endif %}
+{% if yadm.class == "Laptop" %}
+autologin-user=clark
+{% endif %}
 #autologin-user-timeout=0
 #autologin-in-background=false
 #autologin-session=
