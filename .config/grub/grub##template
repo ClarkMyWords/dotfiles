@@ -8,7 +8,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"
 {% endif %}
 
 {% if yadm.class == "Laptop" %}
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3"
+GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 root=/dev/mapper/arch-root cryptdevice=UUID=bd63ac7e-c0c2-4f16-a960-1f1a0b7c4919:luks_lvm"
 {% endif %}
 GRUB_CMDLINE_LINUX="acpi=force"
 

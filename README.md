@@ -14,14 +14,19 @@ ln -sf $HOME/.config/firefox/userChrome.css $HOME/.mozilla/firefox/\<profile\>/c
 
 5. Remember to enable custom user style in Firefox's about:config, setting toolkit.legacyUserProfileCustomizations.stylesheets to true in ***ALL*** profiles
 
-6. A few files need to be sylinked to locations in `/etc` or `/usr/share`. In lieu of having the `bootstrap` perform that, here are the commands:
+6. A few files need to be sylinked or copied to locations in `/etc` or `/usr/share`. In lieu of having the `bootstrap` perform that, here are the commands:
 
 7. `$HOME/.config/grub/grub` should be symlinked to `/etc/default/grub`, and then installed:
 ```sh
 sudo ln -sf $HOME/.config/grub/grub /etc/default/grub
+# Desktop
 sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-sudo grub-mkconfig -o /boot/efi/grub/grub.cfg
+
+# Laptop
+sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=GRUB
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-mkconfig -o /boot/efi/EFI/GRUB/grub.cfg
 ```
 
 8. `$HOME/.config/pacman/pacman.conf` should be symlinked to `/etc/pacman.conf`:
