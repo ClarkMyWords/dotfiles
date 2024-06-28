@@ -1,2 +1,3 @@
 # Use the ones that work for both Laptop and Desktop with symlinks instead
 .config/nvim/lazy-lock.json
+.config/i3/config
