@@ -77,5 +77,6 @@ zinit cdreplay -q
 
 # Environment
 [ -f "$HOME/.zshenv" ] && source "$HOME/.zshenv"
+[ -f "$HOME/.cargo/bin" ] && source "$HOME/.cargo/bin"
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 [ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"
