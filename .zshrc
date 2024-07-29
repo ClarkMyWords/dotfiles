@@ -33,14 +33,8 @@ zinit light zsh-users/zsh-autosuggestions
 # zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# Keybinds, vim
-# Possibly still todo
-#zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
-#function zvm_config() {
-#    
-#}
-bindkey '^k' history-search-backward
-bindkey '^j' history-search-forward
+# Keybinds, vim ???
+bindkey -e # I don't really want the emacs binds, but the vi ones are...bad, and I can't figure out how else to turn them off!
 
 # Prompt
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
